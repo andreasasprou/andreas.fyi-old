@@ -14,10 +14,6 @@ const styles = {
       borderColor: mode("gray.200", "whiteAlpha.300")(props),
       wordWrap: "break-word",
     },
-    "html, body, #__next": {
-      h: "100%",
-      w: "100%",
-    },
     body: {
       bg: mode("white", "black")(props),
     },

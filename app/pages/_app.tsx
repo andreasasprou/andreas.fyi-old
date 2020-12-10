@@ -1,3 +1,5 @@
+import "utils/global.css"
+
 import { AppProps, ErrorComponent, useRouter, AuthenticationError, AuthorizationError } from "blitz"
 import { ErrorBoundary, FallbackProps } from "react-error-boundary"
 import { queryCache } from "react-query"
