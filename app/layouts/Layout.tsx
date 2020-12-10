@@ -1,21 +1,15 @@
 import { ReactNode } from "react"
-import { Head } from "blitz"
+import { Box } from "@chakra-ui/layout"
 
 type LayoutProps = {
-  title?: string
   children: ReactNode
 }
 
-const Layout = ({ title, children }: LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
-      <Head>
-        <title>{title || "andreas.fyi"}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Box w="100%" h="100%" bg="black">
       {children}
-    </>
+    </Box>
   )
 }
 
