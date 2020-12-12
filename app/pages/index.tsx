@@ -32,7 +32,7 @@ const Home: BlitzPage = () => {
     <>
       <NextSeo title="Andreas Asprou" description="Andreas Asprou." />
       <Container py="90px" maxW="1300px">
-        <Text fontWeight={500} fontSize="xl">
+        <Text fontWeight={600} fontSize="xl">
           Andreas Asprou
         </Text>
         <Stack
