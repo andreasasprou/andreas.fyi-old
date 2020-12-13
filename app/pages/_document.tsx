@@ -1,5 +1,6 @@
 import { Document, Html, DocumentHead, Main, BlitzScript, Head /*DocumentContext*/ } from "blitz"
 import { ColorModeScript } from "@chakra-ui/color-mode"
+import { ClientConstants } from "utils/constants/client"
 
 class MyDocument extends Document {
   // Only uncomment if you need to customize this behaviour
@@ -19,6 +20,20 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
           <link rel="stylesheet" href="/fonts/silka/stylesheet.css" />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-6353F1BVDT" />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+  
+              gtag('config', '${ClientConstants.gtagTrackingId}', {
+                page_path: window.location.pathname,
+              });
+            `,
+            }}
+          />
         </DocumentHead>
         <body>
           <ColorModeScript />

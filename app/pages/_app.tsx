@@ -5,10 +5,22 @@ import { ErrorBoundary, FallbackProps } from "react-error-boundary"
 import { queryCache } from "react-query"
 import { Box, ChakraProvider, ColorModeProvider } from "@chakra-ui/react"
 import { theme } from "utils/theme"
+import { useEffect } from "react"
+import { GtagService } from "utils/tracking"
 
 export default function App({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
   const router = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      GtagService.pageview(url)
+    }
+    router.events.on("routeChangeComplete", handleRouteChange)
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <ChakraProvider theme={theme}>
