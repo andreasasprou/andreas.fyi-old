@@ -1,12 +1,9 @@
-import { BlitzPage, dynamic } from "blitz"
+import { BlitzPage } from "blitz"
 import Layout from "app/layouts/Layout"
 import React from "react"
 import { NextSeo } from "next-seo"
 import { Container, Link, LinkProps, Stack, StackProps, Text } from "@chakra-ui/layout"
-import { Box, Center } from "@chakra-ui/react"
-import TextWithHover from "app/components/TextWithHover"
 import { HomeText } from "../components/HomeText"
-import { TitlesWithMoreInfo } from "../components/DigitalProductsInfo"
 import {
   DigitalProducts,
   LifePhilosophies,
