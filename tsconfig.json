@@ -18,7 +18,11 @@
     "incremental": true,
     "tsBuildInfoFile": ".tsbuildinfo",
     "paths": {
-      "utils/*": ["utils/*"]
+      "utils/*": ["utils/*"],
+      "ui/*": ["app/components/*"],
+      "home/*": ["app/home/*"],
+      "quantified/*": ["app/quantified/*"],
+      "preferences/*": ["app/preferences/*"]
     }
   },
   "exclude": ["node_modules"],

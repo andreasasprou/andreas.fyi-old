@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Text } from "@chakra-ui/layout"
-import TextWithHover from "./TextWithHover"
+import PageTextWithHover from "../../components/common/PageTextWithHover"
 
 const Content = ({ text }: { text: string }) => (
   <Text fontSize="inherit">
@@ -12,34 +12,36 @@ const Content = ({ text }: { text: string }) => (
 
 export function DigitalProducts() {
   return (
-    <TextWithHover
+    <PageTextWithHover
       hoverContent={<Content text="building, designing and scaling digital products" />}
     >
       digital products
-    </TextWithHover>
+    </PageTextWithHover>
   )
 }
 
 export function OptimizeHealth() {
   return (
-    <TextWithHover hoverContent={<Content text="my diet, routines, habits etc" />}>
+    <PageTextWithHover hoverContent={<Content text="my diet, routines, habits etc" />}>
       optimizing my health
-    </TextWithHover>
+    </PageTextWithHover>
   )
 }
 
 export function LifePhilosophies() {
   return (
-    <TextWithHover hoverContent={<Content text="my life philosophies" />}>
+    <PageTextWithHover hoverContent={<Content text="my life philosophies" />}>
       life philosophies
-    </TextWithHover>
+    </PageTextWithHover>
   )
 }
 
 export function Relationships() {
   return (
-    <TextWithHover hoverContent={<Content text="how I navigate relationships and mental health" />}>
+    <PageTextWithHover
+      hoverContent={<Content text="how I navigate relationships and mental health" />}
+    >
       build strong relationships
-    </TextWithHover>
+    </PageTextWithHover>
   )
 }

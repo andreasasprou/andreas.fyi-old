@@ -1,14 +1,19 @@
 import React from "react"
 import { Box, TextProps, Text } from "@chakra-ui/layout"
 import { Tooltip } from "react-tippy"
-import { HomeText } from "./HomeText"
+import { PageText } from "./PageText"
 
-interface TextWithHover extends TextProps {
+interface PageTextWithHoverProps extends TextProps {
   hoverContent: React.ReactElement | string
   followCursor?: boolean
 }
 
-function TextWithHover({ children, hoverContent, followCursor = true, ...rest }: TextWithHover) {
+export function PageTextWithHover({
+  children,
+  hoverContent,
+  followCursor = true,
+  ...rest
+}: PageTextWithHoverProps) {
   return (
     <Tooltip
       followCursor={followCursor}
@@ -22,7 +27,7 @@ function TextWithHover({ children, hoverContent, followCursor = true, ...rest }:
       }
       hideOnClick={false}
     >
-      <HomeText
+      <PageText
         backgroundImage="linear-gradient(to right, #f2aa4cff 75%, transparent 75%)"
         backgroundPosition="0 1.04em"
         backgroundRepeat="repeat-x"
@@ -34,9 +39,9 @@ function TextWithHover({ children, hoverContent, followCursor = true, ...rest }:
         {...rest}
       >
         {children}
-      </HomeText>
+      </PageText>
     </Tooltip>
   )
 }
 
-export default TextWithHover
+export default PageTextWithHover
