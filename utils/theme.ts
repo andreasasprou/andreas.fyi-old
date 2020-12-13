@@ -22,6 +22,11 @@ const styles = {
 
 export const theme = extendTheme({
   styles,
+  colors: {
+    brand: {
+      500: "#f2aa4cff",
+    },
+  },
   fonts: {
     body:
       '"Silka",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',

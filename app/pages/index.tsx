@@ -1,15 +1,27 @@
-import { BlitzPage } from "blitz"
+import { BlitzPage, dynamic } from "blitz"
 import Layout from "app/layouts/Layout"
 import React from "react"
 import { NextSeo } from "next-seo"
-import { Container, Link, LinkProps, Stack, Text, TextProps } from "@chakra-ui/layout"
+import { Container, Link, LinkProps, Stack, StackProps, Text } from "@chakra-ui/layout"
+import { Box, Center } from "@chakra-ui/react"
+import TextWithHover from "app/components/TextWithHover"
+import { HomeText } from "../components/HomeText"
+import { TitlesWithMoreInfo } from "../components/DigitalProductsInfo"
+import {
+  DigitalProducts,
+  LifePhilosophies,
+  OptimizeHealth,
+  Relationships,
+} from "../components/TitlesWithMoreInfo"
 
-const Title = (props: TextProps) => (
-  <Text
-    fontSize={{
-      base: "3xl",
-      md: "4xl",
+const Section = (props: StackProps) => (
+  <Stack
+    maxW="850px"
+    mt={{
+      base: 12,
+      md: 28,
     }}
+    spacing={6}
     {...props}
   />
 )
@@ -32,19 +44,23 @@ const Home: BlitzPage = () => {
     <>
       <NextSeo title="Andreas Asprou" description="Andreas Asprou." />
       <Container py="90px" maxW="1300px">
-        <Text fontWeight={600} fontSize="xl">
+        <Text color="orange.300" fontWeight={600} fontSize="xl">
           Andreas Asprou
         </Text>
-        <Stack
-          maxW="650px"
-          mt={{
-            base: 12,
-            md: 28,
-          }}
-          spacing={6}
-        >
-          <Title>Coming soon.</Title>
-          <Title>
+        <Section>
+          <HomeText>I'm a deliberate, unconventional and obsessive individual.</HomeText>
+          <HomeText>
+            I live to work ("workaholic"): attempting to optimize my life around being able to
+            create exceptional <DigitalProducts /> and learn as much as possible.
+          </HomeText>
+          <HomeText>I spend most of my time writing code and designing systems.</HomeText>
+          <HomeText>
+            In my down time I think deeply about my <LifePhilosophies />, <OptimizeHealth /> and
+            attempt to <Relationships />.
+          </HomeText>
+        </Section>
+        <Section>
+          <HomeText>
             You'll find me working on{" "}
             <HomeLink href="https://www.flick.tech" target="_blank">
               Flick.tech
@@ -53,8 +69,8 @@ const Home: BlitzPage = () => {
             <HomeLink href="https://www.dweet.com" target="_blank">
               Dweet.com
             </HomeLink>
-          </Title>
-          <Title>
+          </HomeText>
+          <HomeText>
             If you'd like to get in touch, consider{" "}
             <HomeLink href="mailto:andyasprou@hey.com?subject=Hello">writing an email</HomeLink> or
             sending a{" "}
@@ -62,8 +78,8 @@ const Home: BlitzPage = () => {
               tweet
             </HomeLink>
             .
-          </Title>
-        </Stack>
+          </HomeText>
+        </Section>
       </Container>
     </>
   )
