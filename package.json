@@ -6,7 +6,7 @@
     "dev": "blitz start",
     "studio": "blitz db studio",
     "build": "blitz build",
-    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx .",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch"
   },
@@ -27,7 +27,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": [
+    "*.{ts,tsx}": [
       "eslint --fix"
     ]
   },
