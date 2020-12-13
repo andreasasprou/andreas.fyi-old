@@ -59,19 +59,9 @@ module.exports = {
     },
   ],
   settings: {
-    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+    "import/extensions": [".ts", ".tsx"],
   },
-  ignorePatterns: [
-    "blitz.config.js",
-    "next.config.js",
-    ".eslintrc.js",
-    "detect-circular-deps.js",
-    "jest.config.js",
-    ".next/**/*",
-    ".blitz/**/*",
-    "scripts/*",
-    "polyfills.js",
-  ],
+  ignorePatterns: ["*.js", ".next/**/*", ".blitz/**/*", "scripts/*"],
   env: {
     jest: true,
   },
