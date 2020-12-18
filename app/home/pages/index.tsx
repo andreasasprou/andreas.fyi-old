@@ -46,6 +46,13 @@ const Home: BlitzPage = () => {
           </HomeLink>
         </PageText>
         <PageText>
+          In the future, I will continue building{" "}
+          <HomeLink href="https://www.garn.io" target="_blank">
+            Garn.io
+          </HomeLink>
+          . If you're interested in helping online businesses reduce churn, please reach out.
+        </PageText>
+        <PageText>
           If you'd like to get in touch, consider{" "}
           <HomeLink href="mailto:andyasprou@hey.com?subject=Hello">writing an email</HomeLink> or
           sending a{" "}
