@@ -1,6 +1,5 @@
 import React from "react"
 import { OuraData } from "quantified/types"
-import { ListeningTime } from "quantified/components/Podcasts"
 import { OuraService } from "quantified/services/oura"
 import { OuraInsights } from "quantified/components/Oura"
 import Layout from "../../../layouts/Layout"
