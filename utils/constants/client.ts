@@ -10,7 +10,12 @@ export const ROUTES = {
 }
 
 export const LayoutConstants = {
+  textMaxWidth: 800,
   margin: {
+    paragraph: {
+      base: 2,
+      md: 4,
+    },
     large: { base: 12, md: 28 },
     small: {
       base: 6,

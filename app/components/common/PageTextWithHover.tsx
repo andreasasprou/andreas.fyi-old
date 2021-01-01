@@ -1,7 +1,7 @@
 import React from "react"
 import { Box, TextProps, Text } from "@chakra-ui/layout"
-import { Tooltip } from "react-tippy"
 import { PageText } from "./PageText"
+import { Tooltip } from "./Tooltip"
 
 interface PageTextWithHoverProps extends TextProps {
   hoverContent: React.ReactElement | string
@@ -18,7 +18,7 @@ export function PageTextWithHover({
     <Tooltip
       followCursor={followCursor}
       arrow={false}
-      html={
+      content={
         <Box bg="#f2aa4cff" maxW={300} p={10}>
           <Text color="black" fontSize="xl">
             {hoverContent}

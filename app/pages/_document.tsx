@@ -20,20 +20,10 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
           <link rel="stylesheet" href="/fonts/silka/stylesheet.css" />
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-6353F1BVDT" />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-  
-              gtag('config', '${ClientConstants.gtagTrackingId}', {
-                page_path: window.location.pathname,
-              });
-            `,
-            }}
-          />
+          <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+          <noscript>
+            <img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" />
+          </noscript>
         </DocumentHead>
         <body>
           <ColorModeScript />

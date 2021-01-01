@@ -37,6 +37,7 @@
     "@emotion/styled": "11.0.0",
     "@prisma/cli": "2.13.0",
     "@prisma/client": "2.13.0",
+    "@tippyjs/react": "4.2.0",
     "blitz": "0.27.0",
     "date-fns": "2.16.1",
     "final-form": "4.20.1",

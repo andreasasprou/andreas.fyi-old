@@ -21,6 +21,8 @@
       "utils/*": ["utils/*"],
       "ui/*": ["app/components/*"],
       "home/*": ["app/home/*"],
+      "thinking/*": ["app/thinking/*"],
+      "layouts/*": ["app/layouts/*"],
       "quantified/*": ["app/quantified/*"],
       "preferences/*": ["app/preferences/*"]
     }
