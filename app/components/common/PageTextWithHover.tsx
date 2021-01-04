@@ -1,11 +1,11 @@
-import React from "react"
-import { Box, TextProps, Text } from "@chakra-ui/layout"
-import { PageText } from "./PageText"
-import { Tooltip } from "./Tooltip"
+import React from "react";
+import { Box, TextProps, Text } from "@chakra-ui/layout";
+import { PageText } from "./PageText";
+import { Tooltip } from "./Tooltip";
 
 interface PageTextWithHoverProps extends TextProps {
-  hoverContent: React.ReactElement | string
-  followCursor?: boolean
+  hoverContent: React.ReactElement | string;
+  followCursor?: boolean;
 }
 
 export function PageTextWithHover({
@@ -19,13 +19,14 @@ export function PageTextWithHover({
       followCursor={followCursor}
       arrow={false}
       content={
-        <Box bg="#f2aa4cff" maxW={300} p={10}>
+        <Box bg="#f2aa4cff" maxW={300} p={4}>
           <Text color="black" fontSize="xl">
             {hoverContent}
           </Text>
         </Box>
       }
       hideOnClick={false}
+      placement="auto"
     >
       <PageText
         backgroundImage="linear-gradient(to right, #f2aa4cff 75%, transparent 75%)"
@@ -41,7 +42,7 @@ export function PageTextWithHover({
         {children}
       </PageText>
     </Tooltip>
-  )
+  );
 }
 
-export default PageTextWithHover
+export default PageTextWithHover;
