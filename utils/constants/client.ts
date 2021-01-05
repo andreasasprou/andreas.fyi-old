@@ -1,13 +1,12 @@
-const nodeEnv = process.env.NODE_ENV
+const nodeEnv = process.env.NODE_ENV;
 
 export const ClientConstants = {
-  gtagTrackingId: "G-6353F1BVDT",
   isProd: nodeEnv === "production",
-}
+};
 
 export const ROUTES = {
   Home: "/",
-}
+};
 
 export const LayoutConstants = {
   textMaxWidth: 800,
@@ -22,4 +21,4 @@ export const LayoutConstants = {
       md: 12,
     },
   },
-}
+};

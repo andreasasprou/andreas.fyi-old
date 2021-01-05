@@ -43,6 +43,8 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": "off", //Doesn't play well with Blitz/Next <Link> usage
     "jsx-a11y/tabindex-no-positive": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    "no-trailing-spaces": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
   },
   overrides: [
     {
@@ -65,4 +67,4 @@ module.exports = {
   env: {
     jest: true,
   },
-}
+};

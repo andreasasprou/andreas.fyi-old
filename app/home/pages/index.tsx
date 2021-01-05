@@ -1,10 +1,10 @@
-import { BlitzPage } from "blitz"
-import Layout from "app/layouts/Layout"
-import React from "react"
-import { NextSeo } from "next-seo"
-import { Container, Link, LinkProps } from "@chakra-ui/layout"
-import { PageSection, PageText, PageTitle } from "ui/common"
-import { DigitalProducts, LifePhilosophies, OptimizeHealth, Relationships } from "home/components"
+import { BlitzPage } from "blitz";
+import Layout from "app/layouts/Layout";
+import React from "react";
+import { NextSeo } from "next-seo";
+import { Container, Link, LinkProps } from "@chakra-ui/layout";
+import { PageSection, PageText, PageTitle } from "ui/common";
+import { DigitalProducts, LifePhilosophies, OptimizeHealth, Relationships } from "home/components";
 
 const HomeLink = (props: LinkProps) => (
   <Link
@@ -17,7 +17,7 @@ const HomeLink = (props: LinkProps) => (
     }}
     {...props}
   />
-)
+);
 
 const Home: BlitzPage = () => {
   return (
@@ -63,9 +63,9 @@ const Home: BlitzPage = () => {
         </PageText>
       </PageSection>
     </>
-  )
-}
+  );
+};
 
-Home.getLayout = (page) => <Layout title="Me">{page}</Layout>
+Home.getLayout = (page) => <Layout title="Me">{page}</Layout>;
 
-export default Home
+export default Home;

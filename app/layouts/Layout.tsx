@@ -1,13 +1,14 @@
-import React, { ReactNode } from "react"
-import { Box, BoxProps, Container, Text } from "@chakra-ui/layout"
-import { PageTitle } from "ui/common"
-import { NextSeo } from "next-seo"
-import { Link } from "@chakra-ui/react"
-import { LayoutConstants } from "utils/constants/client"
+import React, { ReactNode } from "react";
+import { Box, BoxProps, Container, Text } from "@chakra-ui/layout";
+import { PageTitle } from "ui/common";
+import { NextSeo } from "next-seo";
+import { Link } from "@chakra-ui/react";
+import { LayoutConstants } from "utils/constants/client";
+import { SubscribeCard } from "ui/SubscribeCard";
 
 interface LayoutProps extends BoxProps {
-  children: ReactNode
-  title: string
+  children: ReactNode;
+  title: string;
 }
 
 function Layout({ title, children, ...rest }: LayoutProps) {
@@ -32,9 +33,10 @@ function Layout({ title, children, ...rest }: LayoutProps) {
           </Link>
           .
         </Text>
+        <SubscribeCard mt={4} />
       </Container>
     </Box>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

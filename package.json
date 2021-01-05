@@ -37,7 +37,6 @@
     "@emotion/styled": "11.0.0",
     "@prisma/cli": "2.13.0",
     "@prisma/client": "2.13.0",
-    "@stitches/react": "0.0.2",
     "@tippyjs/react": "4.2.0",
     "blitz": "0.27.0",
     "chakra-ui": "https://github.com/chakra-ui/chakra-ui#develop",
@@ -52,6 +51,7 @@
     "react-error-boundary": "2.3.2",
     "react-final-form": "6.5.2",
     "react-tippy": "1.4.0",
+    "recoil": "0.1.2",
     "secure-password": "4.0.0",
     "typescript": "4.1.2",
     "zod": "1.11.11"

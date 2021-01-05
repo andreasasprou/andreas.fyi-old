@@ -19,6 +19,7 @@
     "tsBuildInfoFile": ".tsbuildinfo",
     "paths": {
       "utils/*": ["utils/*"],
+      "theme": ["utils/theme/index.ts"],
       "ui/*": ["app/components/*"],
       "home/*": ["app/home/*"],
       "thinking/*": ["app/thinking/*"],

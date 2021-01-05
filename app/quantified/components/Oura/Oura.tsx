@@ -1,17 +1,17 @@
-import { PageTextWithHover, PageSubSection, PageText, PageTextHighlight } from "ui/common"
-import React from "react"
-import { OuraData, OuraSleepDatapoint } from "quantified/types"
-import parseISO from "date-fns/parseISO"
-import { getAverageTimeOfDay } from "quantified/services/time-utils"
-import sub from "date-fns/sub"
-import { Text, Center, Grid } from "@chakra-ui/layout"
+import { PageTextWithHover, PageSubSection, PageText, PageTextHighlight } from "ui/common";
+import React from "react";
+import { OuraData, OuraSleepDatapoint } from "quantified/types";
+import parseISO from "date-fns/parseISO";
+import { getAverageTimeOfDay } from "quantified/services/time-utils";
+import sub from "date-fns/sub";
+import { Text, Center, Grid } from "@chakra-ui/layout";
 
 interface WakeUpTimeProps {
-  sleep: OuraSleepDatapoint[]
+  sleep: OuraSleepDatapoint[];
 }
 
 // HH:MM:SS -> HH:MM
-const getHourMinutesFromTime = (time: string) => time.split(":").slice(0, 2).join(":")
+const getHourMinutesFromTime = (time: string) => time.split(":").slice(0, 2).join(":");
 
 const getYesterday = (sleep: OuraSleepDatapoint[]) => {
   return sleep.find(
@@ -20,17 +20,17 @@ const getYesterday = (sleep: OuraSleepDatapoint[]) => {
       sub(new Date(), {
         days: 1,
       }).getDay()
-  ) as OuraSleepDatapoint
-}
+  ) as OuraSleepDatapoint;
+};
 
 function WakeUpTime({ sleep }: WakeUpTimeProps) {
-  const yesterday = getYesterday(sleep)
+  const yesterday = getYesterday(sleep);
   const yesterdayWakeupTime = getHourMinutesFromTime(
     new Date(yesterday.bedtime_end).toTimeString().split(" ")[0]
-  )
+  );
   const aveWakeUpTime = getHourMinutesFromTime(
     getAverageTimeOfDay(sleep.map((item) => new Date(item.bedtime_end)))
-  )
+  );
 
   return (
     <PageText>
@@ -41,18 +41,18 @@ function WakeUpTime({ sleep }: WakeUpTimeProps) {
       </PageTextWithHover>{" "}
       average over the last month.
     </PageText>
-  )
+  );
 }
 
 function formatHours(hours: number) {
-  const rhours = Math.floor(hours)
-  const minutes = (hours - rhours) * 60
-  const rminutes = Math.round(minutes)
+  const rhours = Math.floor(hours);
+  const minutes = (hours - rhours) * 60;
+  const rminutes = Math.round(minutes);
 
-  return `${rhours}h ${rminutes}m`
+  return `${rhours}h ${rminutes}m`;
 }
 
-const secondsToHours = (seconds: number) => formatHours(seconds / 3600)
+const secondsToHours = (seconds: number) => formatHours(seconds / 3600);
 
 function SleepSummary({ day }: { day: OuraSleepDatapoint }) {
   const stats = [
@@ -72,7 +72,7 @@ function SleepSummary({ day }: { day: OuraSleepDatapoint }) {
       title: "RHR",
       stat: day.hr_lowest,
     },
-  ]
+  ];
 
   return (
     <Grid templateColumns="repeat(2, 1fr)" gap={10}>
@@ -93,12 +93,12 @@ function SleepSummary({ day }: { day: OuraSleepDatapoint }) {
         </Center>
       ))}
     </Grid>
-  )
+  );
 }
 
 function SleepData({ sleep }: WakeUpTimeProps) {
-  const yesterday = getYesterday(sleep)
-  const average = sleep.reduce((sum, item) => sum + item.total, 0) / sleep.length
+  const yesterday = getYesterday(sleep);
+  const average = sleep.reduce((sum, item) => sum + item.total, 0) / sleep.length;
 
   return (
     <PageText>
@@ -112,7 +112,7 @@ function SleepData({ sleep }: WakeUpTimeProps) {
       </PageTextWithHover>{" "}
       average over the last month.
     </PageText>
-  )
+  );
 }
 
 export function OuraInsights({ sleep }: OuraData) {
@@ -121,5 +121,5 @@ export function OuraInsights({ sleep }: OuraData) {
       <WakeUpTime sleep={sleep} />
       <SleepData sleep={sleep} />
     </PageSubSection>
-  )
+  );
 }

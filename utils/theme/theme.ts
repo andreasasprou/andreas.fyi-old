@@ -1,5 +1,6 @@
-import { mode } from "@chakra-ui/theme-tools"
-import { extendTheme } from "@chakra-ui/react"
+import { mode } from "@chakra-ui/theme-tools";
+
+import { extendTheme } from "@chakra-ui/react";
 
 const styles = {
   global: (props) => ({
@@ -18,7 +19,7 @@ const styles = {
       bg: mode("white", "black")(props),
     },
   }),
-}
+};
 
 export const theme = extendTheme({
   styles,
@@ -34,4 +35,4 @@ export const theme = extendTheme({
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     mono: 'SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace',
   },
-})
+});

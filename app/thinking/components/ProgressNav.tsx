@@ -1,4 +1,4 @@
-import React, { Ref, useEffect, useRef, useState } from "react";
+import React, { Ref, useEffect, useState } from "react";
 import { Heading, LinkProps, StackProps } from "@chakra-ui/layout";
 import { Link } from "ui/common";
 import { Stack } from "@chakra-ui/react";
@@ -28,15 +28,6 @@ const NavLink = React.forwardRef(function NavLink(
 });
 
 export function ProgressNav({ title = "Topics of Thought", sections, ...rest }: ProgressNavProps) {
-  const idToRef = useRef(
-    sections.reduce(
-      (acc, { id }) => ({
-        ...acc,
-        [id]: React.createRef(),
-      }),
-      {}
-    )
-  );
   const [activeSection, setActiveSection] = useState<string | undefined>();
 
   const sectionIds = sections.map(({ id }) => id);
@@ -87,7 +78,7 @@ export function ProgressNav({ title = "Topics of Thought", sections, ...rest }: 
         {title}
       </Heading>
       {sections.map(({ title, id }) => (
-        <NavLink ref={idToRef.current[id]} href={`#${id}`} key={id} isActive={activeSection === id}>
+        <NavLink href={`#${id}`} key={id} isActive={activeSection === id}>
           {title}
         </NavLink>
       ))}
