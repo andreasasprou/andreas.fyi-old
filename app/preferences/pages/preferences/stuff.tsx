@@ -59,7 +59,7 @@ const sections = [
         link: "https://bear.app/",
       },
       {
-        text: "Bear",
+        text: "Pitch",
         link: "https://pitch.com",
       },
     ],
