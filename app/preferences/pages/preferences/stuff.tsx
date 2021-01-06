@@ -92,6 +92,10 @@ const sections = [
         text: "Eight Sleep",
         link: "https://www.eightsleep.com/",
       },
+      {
+        title: "Walden meditation cushion",
+        link: "https://walden.us/",
+      },
     ],
   },
   {
@@ -122,6 +126,23 @@ const sections = [
       {
         text: "PerfectKeto bars",
         link: "https://shop.perfectketo.com/products/keto-bars",
+      },
+    ],
+  },
+  {
+    title: "Home",
+    items: [
+      {
+        text: "Feddies Flowers (b-monthly deliveries for the Mother)",
+        link: "https://www.freddiesflowers.com/",
+      },
+      {
+        title: "DÉ Tableware By Ann Demeulemeester - Serax",
+        link: "https://www.serax.com/en/collection/de",
+      },
+      {
+        title: "Always Pan",
+        link: "https://fromourplace.com/products/always-essential-cooking-pan",
       },
     ],
   },
