@@ -1,17 +1,23 @@
+import "nprogress/nprogress.css";
 import "utils/global.css";
-
+import NProgress from "nprogress";
 import {
   AppProps,
   ErrorComponent,
   useRouter,
   AuthenticationError,
   AuthorizationError,
+  Router,
 } from "blitz";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
 import { queryCache } from "react-query";
 import { Box, ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
 import { theme } from "theme";
 import { RecoilRoot } from "recoil";
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 function App({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -21,6 +27,7 @@ function App({ Component, pageProps }: AppProps) {
     <RecoilRoot>
       <ChakraProvider theme={theme} resetCSS>
         <ColorModeProvider
+          value="dark"
           options={{
             initialColorMode: "dark",
             useSystemColorMode: false,

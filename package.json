@@ -44,6 +44,7 @@
     "final-form": "4.20.1",
     "framer-motion": "2.9.5",
     "next-seo": "4.17.0",
+    "nprogress": "0.2.0",
     "oura": "0.6.4",
     "pocketcasts": "1.0.1",
     "react": "0.0.0-experimental-4ead6b530",
