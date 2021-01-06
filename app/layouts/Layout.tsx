@@ -6,17 +6,17 @@ import { Link } from "@chakra-ui/react";
 import { LayoutConstants } from "utils/constants/client";
 import { SubscribeCard } from "ui/SubscribeCard";
 
-interface LayoutProps extends BoxProps {
+interface LayoutProps extends Omit<BoxProps, "title"> {
   children: ReactNode;
-  title: string;
+  title: string | string[];
 }
 
 function Layout({ title, children, ...rest }: LayoutProps) {
   return (
-    <Box w="100%" h="100%" bg="black" {...rest}>
+    <Box w="100%" h="100%" {...rest}>
       <NextSeo title={`${title} - Andreas Asprou`} description="Andreas Asprou." />
       <Container py="90px" maxW="1300px">
-        <PageTitle>{title}</PageTitle>
+        <PageTitle>{typeof title === "string" ? title : title.join(" / ")}</PageTitle>
         {children}
         <Text color="orange.300" fontSize="xl" mt={LayoutConstants.margin.large}>
           This website is built using{" "}

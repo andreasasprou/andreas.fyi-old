@@ -75,7 +75,7 @@ function SleepSummary({ day }: { day: OuraSleepDatapoint }) {
   ];
 
   return (
-    <Grid templateColumns="repeat(2, 1fr)" gap={10}>
+    <Grid templateColumns="repeat(2, 1fr)" gap={4}>
       {stats.map(({ title, stat }) => (
         <Center flexDirection="column" key={title}>
           <Text
@@ -87,7 +87,7 @@ function SleepSummary({ day }: { day: OuraSleepDatapoint }) {
           >
             {title}
           </Text>
-          <Text textAlign="center" color="whiteAlpha.300">
+          <Text fontWeight={500} textAlign="center" color="white">
             {stat}
           </Text>
         </Center>

@@ -4,8 +4,21 @@ export const ClientConstants = {
   isProd: nodeEnv === "production",
 };
 
+type RoundUps = "dec-2020";
+
 export const ROUTES = {
   Home: "/",
+  Thinking: {
+    RoundUps: "/thinking/round-ups",
+    roundUp: (name: RoundUps) => `/thinking/round-ups/${name}`,
+  },
+  Preferences: {
+    Stuff: "/preferences/stuff",
+    Podcasts: "/preferences/podcasts",
+  },
+  Quantified: {
+    Sleep: "/quantified/sleep",
+  },
 };
 
 export const LayoutConstants = {

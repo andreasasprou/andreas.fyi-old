@@ -1,6 +1,8 @@
 import { mode } from "@chakra-ui/theme-tools";
 
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, useColorModeValue } from "@chakra-ui/react";
+import { MenuStyles } from "./component-styles";
+import { gray } from "./colors";
 
 const styles = {
   global: (props) => ({
@@ -15,18 +17,26 @@ const styles = {
       borderColor: mode("gray.200", "whiteAlpha.300")(props),
       wordWrap: "break-word",
     },
-    body: {
-      bg: mode("white", "black")(props),
-    },
   }),
 };
 
 export const theme = extendTheme({
+  components: {
+    Menu: MenuStyles,
+    List: {
+      baseStyle: {
+        container: {
+          pl: 5,
+        },
+      },
+    },
+  },
   styles,
   colors: {
     brand: {
       500: "#f2aa4cff",
     },
+    gray,
   },
   fonts: {
     body:
@@ -36,3 +46,19 @@ export const theme = extendTheme({
     mono: 'SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace',
   },
 });
+
+export const ColorConstants = {
+  bg: {
+    light: "white",
+    dark: "black",
+  },
+  color: {
+    light: "gray.800",
+    dark: "whiteAlpha.900",
+  },
+};
+
+export function useBgColor() {
+  const { light, dark } = ColorConstants.bg;
+  return useColorModeValue(light, dark);
+}

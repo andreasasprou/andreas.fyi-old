@@ -19,7 +19,7 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <RecoilRoot>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider theme={theme} resetCSS>
         <ColorModeProvider
           options={{
             initialColorMode: "dark",

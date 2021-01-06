@@ -5,6 +5,7 @@ import { LayoutConstants } from "utils/constants/client";
 import { BodyText, BodyTextWithPopover, Quote } from "thinking/components";
 import { Link } from "ui/common";
 import { ProgressNav } from "thinking/components/ProgressNav";
+import { useBgColor } from "theme";
 
 const sections = [
   {
@@ -51,6 +52,7 @@ function BodySection({
 }: BoxProps & {
   sectionId: SectionId;
 }) {
+  const bg = useBgColor();
   const section = sections.find(({ id }) => id === sectionId);
 
   if (!section) {
@@ -66,7 +68,7 @@ function BodySection({
       {...rest}
     >
       <Heading
-        bg="black"
+        bg={bg}
         py={LayoutConstants.margin.paragraph}
         zIndex={2}
         position="sticky"
@@ -309,7 +311,7 @@ function Dec2020() {
           by describing it as a "trust battery" we may be more able to non-judgmentally see how we
           may be able to make meaningful transformations.
         </BodyText>
-        <Quote>
+        <Quote name="Henry Ford">
           If there is any one secret of success, it lies in the ability to get the other person’s
           point of view and see things from that person’s angle as well as from your own.
         </Quote>
@@ -403,7 +405,7 @@ function Dec2020() {
 
 function Dec2020WithSidebar() {
   return (
-    <Flex w="100%" py={LayoutConstants.margin.large}>
+    <Flex w="100%" pt={LayoutConstants.margin.large}>
       <Box>
         <Dec2020 />
       </Box>
@@ -413,7 +415,7 @@ function Dec2020WithSidebar() {
 }
 
 Dec2020WithSidebar.getLayout = (page) => (
-  <Layout title="Thinking with the door open">{page}</Layout>
+  <Layout title={["Thinking with the door open", "Dec 2020"]}>{page}</Layout>
 );
 
 export default Dec2020WithSidebar;

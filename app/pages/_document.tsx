@@ -24,7 +24,7 @@ class MyDocument extends Document {
           )}
         </DocumentHead>
         <body>
-          <ColorModeScript />
+          <ColorModeScript initialColorMode="dark" />
           <Main />
           <BlitzScript />
         </body>
