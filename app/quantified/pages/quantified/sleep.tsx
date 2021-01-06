@@ -18,13 +18,14 @@ function QuantifiedPage({ oura, ...rest }: QuantifiedPageProps) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const oura = OuraService.allData();
 
   return {
     props: {
       oura: await oura,
     },
+    revalidate: 60 * 60, // one hour
   };
 }
 
