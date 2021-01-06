@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, BoxProps, Flex, Heading, Text } from "@chakra-ui/layout";
 import { Field, Form } from "react-final-form";
-import { Button, CloseButton, Input, useBoolean, useToast } from "@chakra-ui/react";
+import { Button, Input, useBoolean, useToast } from "@chakra-ui/react";
 import { localStorageEffect } from "utils/shared";
 import { atom, useRecoilState } from "recoil";
 import subscribeToNewsletter from "../mutations/newsletter";
@@ -84,6 +84,7 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
               <Button
                 minW={140}
                 colorScheme="brand"
+                bg="brand.500"
                 ml={2}
                 isLoading={isLoading}
                 loadingText="Loading..."
