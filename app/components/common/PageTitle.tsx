@@ -27,9 +27,15 @@ function MenuItemLink({
   const router = useRouter();
   const pathname = router.pathname;
 
+  const isActive = pathname.includes(to);
+
   return (
     <NextLink href={to}>
-      <MenuItem bg={pathname.includes(to) ? "whiteAlpha.100" : "transparent"} {...rest} />
+      <MenuItem
+        color={isActive ? "brand.500" : "whiteAlpha.900"}
+        bg={pathname.includes(to) ? "whiteAlpha.100" : "transparent"}
+        {...rest}
+      />
     </NextLink>
   );
 }
@@ -37,7 +43,7 @@ function MenuItemLink({
 export function PageTitle({ children, ...rest }: PageTitleProps) {
   return (
     <Flex align="center" {...rest}>
-      <Menu>
+      <Menu autoSelect={false}>
         <MenuButton mr={4} mt="-2px">
           <Icon fontSize="xl" color="orange.300" as={HamburgerIcon} />
         </MenuButton>
