@@ -62,7 +62,14 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
         <Form
           onSubmit={onSubmit}
           render={({ handleSubmit }) => (
-            <Flex as="form" onSubmit={handleSubmit}>
+            <Flex
+              direction={{
+                base: "column",
+                md: "row",
+              }}
+              as="form"
+              onSubmit={handleSubmit}
+            >
               <Field name={getFieldName("email")}>
                 {({ input }) => (
                   <Input
@@ -85,7 +92,14 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
                 minW={140}
                 colorScheme="brand"
                 bg="brand.500"
-                ml={2}
+                ml={{
+                  base: 0,
+                  md: 2,
+                }}
+                mt={{
+                  base: 2,
+                  md: 0,
+                }}
                 isLoading={isLoading}
                 loadingText="Loading..."
                 type="submit"
