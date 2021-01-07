@@ -13,15 +13,15 @@ interface WakeUpTimeProps {
 // HH:MM:SS -> HH:MM
 const getHourMinutesFromTime = (time: string) => time.split(":").slice(0, 2).join(":");
 
-const getYesterday = (sleep: OuraSleepDatapoint[]) => {
-  return sleep.find(
+function getYesterday<D extends Pick<OuraSleepDatapoint, "summary_date">>(datapoint: D[]): D {
+  return datapoint.find(
     (item) =>
       parseISO(item.summary_date).getDay() ===
       sub(new Date(), {
         days: 1,
       }).getDay()
-  ) as OuraSleepDatapoint;
-};
+  ) as D;
+}
 
 function WakeUpTime({ sleep }: WakeUpTimeProps) {
   const yesterday = getYesterday(sleep);
