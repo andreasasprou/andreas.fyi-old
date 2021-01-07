@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react";
 import { Box, BoxProps, Container, Text } from "@chakra-ui/layout";
-import { PageTitle } from "ui/common";
 import { NextSeo } from "next-seo";
 import { Link } from "@chakra-ui/react";
 import { LayoutConstants } from "utils/constants/client";
 import { SubscribeCard } from "ui/SubscribeCard";
+import { PageTitle } from "ui/common";
 
 interface LayoutProps extends Omit<BoxProps, "title"> {
   children: ReactNode;

@@ -1,8 +1,6 @@
 import React from "react";
-import { Flex, FlexProps, Text } from "@chakra-ui/layout";
 import {
   Icon,
-  Link,
   Menu,
   MenuButton,
   MenuButtonProps,
@@ -13,12 +11,10 @@ import {
   MenuList,
   Portal,
 } from "@chakra-ui/react";
-import { Link as NextLink, useRouter } from "blitz";
-import { ROUTES } from "utils/constants/client";
 import { HamburgerIcon } from "chakra-ui/packages/icons/src/Hamburger";
-import { useIsMobile } from "utils/hooks";
-
-interface PageTitleProps extends FlexProps {}
+import { ROUTES } from "utils/constants/client";
+import { useRouter } from "blitz";
+import { Link as NextLink } from "@blitzjs/core";
 
 function MenuItemLink({
   to,
@@ -42,7 +38,9 @@ function MenuItemLink({
   );
 }
 
-function NavMenu({ ...rest }: MenuButtonProps) {
+interface NavigationMenuProps extends MenuButtonProps {}
+
+export function NavigationMenu({ ...rest }: MenuButtonProps) {
   return (
     <Menu autoSelect={false}>
       <MenuButton
@@ -74,22 +72,5 @@ function NavMenu({ ...rest }: MenuButtonProps) {
         </MenuList>
       </Portal>
     </Menu>
-  );
-}
-
-export function PageTitle({ children, ...rest }: PageTitleProps) {
-  const isMobile = useIsMobile();
-
-  return (
-    <Flex align="center" {...rest}>
-      {!isMobile && <NavMenu mr={4} />}
-      <Text lineHeight={1.4} color="orange.300" fontWeight={600} fontSize="xl">
-        <NextLink href={ROUTES.Home}>
-          <Link>Andreas.FYI</Link>
-        </NextLink>{" "}
-        / {children}
-      </Text>
-      {isMobile && <NavMenu ml="auto" />}
-    </Flex>
   );
 }

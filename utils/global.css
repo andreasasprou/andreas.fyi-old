@@ -19,3 +19,9 @@ html {
   border-top-color: #f2aa4cff;
   border-left-color: #f2aa4cff;
 }
+
+@media only screen and (max-width: 768px) {
+  #nprogress .spinner-icon {
+    display: none;
+  }
+}
