@@ -1,6 +1,6 @@
-import React from "react"
-import { Box, Text } from "@chakra-ui/layout"
-import PageTextWithHover from "../../components/common/PageTextWithHover"
+import React from "react";
+import { Box, Text } from "@chakra-ui/layout";
+import PageTextWithHover from "../../components/common/PageTextWithHover";
 
 const Content = ({ text }: { text: string }) => (
   <Text fontSize="inherit">
@@ -8,7 +8,7 @@ const Content = ({ text }: { text: string }) => (
     <Box my={8} /> I'm in the process of migrating my personal notes to this digital brain dump.
     Come back here soon to read about my lessons and recommendations regarding {text}.
   </Text>
-)
+);
 
 export function DigitalProducts() {
   return (
@@ -17,7 +17,7 @@ export function DigitalProducts() {
     >
       digital products
     </PageTextWithHover>
-  )
+  );
 }
 
 export function OptimizeHealth() {
@@ -25,7 +25,7 @@ export function OptimizeHealth() {
     <PageTextWithHover hoverContent={<Content text="my diet, routines, habits etc" />}>
       optimizing my health
     </PageTextWithHover>
-  )
+  );
 }
 
 export function LifePhilosophies() {
@@ -33,7 +33,7 @@ export function LifePhilosophies() {
     <PageTextWithHover hoverContent={<Content text="my life philosophies" />}>
       life philosophies
     </PageTextWithHover>
-  )
+  );
 }
 
 export function Relationships() {
@@ -43,5 +43,5 @@ export function Relationships() {
     >
       build strong relationships
     </PageTextWithHover>
-  )
+  );
 }

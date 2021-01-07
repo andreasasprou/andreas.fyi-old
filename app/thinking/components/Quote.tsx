@@ -1,7 +1,7 @@
 import React from "react";
 import { TextProps, Text } from "@chakra-ui/react";
 import { LayoutConstants } from "utils/constants/client";
-import { BodyText } from "./BodyText";
+import { BodyText } from "ui/common";
 
 interface QuoteProps extends TextProps {
   quotePosition?: "left" | "right";

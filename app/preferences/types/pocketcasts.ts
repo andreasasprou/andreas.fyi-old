@@ -1,18 +1,18 @@
 export interface PodcastEpisode {
-  duration: number
-  podcastTitle: string
-  published: string
-  title: string
-  url: string
+  duration: number;
+  podcastTitle: string;
+  published: string;
+  title: string;
+  url: string;
 }
 
 export interface PodcastsData {
-  inProgress: any
-  started: any
+  inProgress: any;
+  started: any;
   history: {
-    episodes: {}[]
-  }
+    episodes: {}[];
+  };
   stats: {
-    timeListened: string
-  }
+    timeListened: string;
+  };
 }

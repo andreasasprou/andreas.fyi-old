@@ -1,2 +1,1 @@
-export * from "./BodyText"
-export * from "./Quote"
+export * from "./Quote";

@@ -1,28 +1,28 @@
-import { Box, BoxProps } from "@chakra-ui/react"
-import React from "react"
-import { PageSubSection, PageText } from "ui/common"
+import { Box, BoxProps } from "@chakra-ui/react";
+import React from "react";
+import { PageSubSection, PageText } from "ui/common";
 
 interface ListeningTimeProps extends BoxProps {
-  timeListenedInSeconds: string
+  timeListenedInSeconds: string;
 }
 
 const formatSeconds = (timeInSeconds: string) => {
-  let delta = parseInt(timeInSeconds, 10)
+  let delta = parseInt(timeInSeconds, 10);
 
   // calculate (and subtract) whole days
-  const days = Math.floor(delta / 86400)
-  delta -= days * 86400
+  const days = Math.floor(delta / 86400);
+  delta -= days * 86400;
 
   // calculate (and subtract) whole hours
-  const hours = Math.floor(delta / 3600) % 24
-  delta -= hours * 3600
+  const hours = Math.floor(delta / 3600) % 24;
+  delta -= hours * 3600;
 
   // calculate (and subtract) whole minutes
-  const minutes = Math.floor(delta / 60) % 60
-  delta -= minutes * 60
+  const minutes = Math.floor(delta / 60) % 60;
+  delta -= minutes * 60;
 
-  return `${days} days, ${hours} hours and ${minutes} minutes`
-}
+  return `${days} days, ${hours} hours and ${minutes} minutes`;
+};
 
 export function ListeningTime({ timeListenedInSeconds, ...rest }: ListeningTimeProps) {
   return (
@@ -35,5 +35,5 @@ export function ListeningTime({ timeListenedInSeconds, ...rest }: ListeningTimeP
         of podcasts, according to Pocket Casts API.
       </PageText>
     </PageSubSection>
-  )
+  );
 }

@@ -1,41 +1,41 @@
-import React from "react";
-import { Box, BoxProps, Code, Flex, Grid, Heading, List, ListItem, Text } from "@chakra-ui/layout";
-import Layout from "layouts/Layout";
-import { LayoutConstants } from "utils/constants/client";
-import { BodyText, BodyTextWithPopover, Quote } from "thinking/components";
-import { Link } from "ui/common";
-import { ProgressNav } from "thinking/components/ProgressNav";
-import { useBgColor } from "theme";
+import React from 'react';
+import { Box, BoxProps, Code, Flex, Grid, Heading, List, ListItem, Text } from '@chakra-ui/layout';
+import Layout from 'layouts/Layout';
+import { LayoutConstants } from 'utils/constants/client';
+import { Quote } from 'thinking/components';
+import { BodyText, BodyTextWithPopover, Link } from 'ui/common';
+import { ProgressNav } from 'thinking/components/ProgressNav';
+import { useBgColor } from 'theme';
 
 const sections = [
   {
-    id: "materials",
-    title: "Materials",
+    id: 'materials',
+    title: 'Materials'
   },
   {
-    id: "product-focus",
-    title: "Unapologetically Focus on Product",
+    id: 'product-focus',
+    title: 'Unapologetically Focus on Product'
   },
   {
-    id: "levelling-up",
-    title: "As a T-Shaped Individual, where should I Level Up?",
+    id: 'levelling-up',
+    title: 'As a T-Shaped Individual, where should I Level Up?'
   },
   {
-    id: "customer-centricity",
-    title: "Design Companies Around The Customer",
+    id: 'customer-centricity',
+    title: 'Design Companies Around The Customer'
   },
   {
-    id: "trust-communication",
-    title: "Communicating About Trust",
+    id: 'trust-communication',
+    title: 'Communicating About Trust'
   },
   {
-    id: "charging-trust",
-    title: "Strategies to Keep The Trust Battery Charged",
+    id: 'charging-trust',
+    title: 'Strategies to Keep The Trust Battery Charged'
   },
   {
-    id: "inspiring-change",
-    title: "Inspiring Change in Other People",
-  },
+    id: 'inspiring-change',
+    title: 'Inspiring Change in Other People'
+  }
 ];
 
 const sectionIds = sections.map(({ id }) => id);
@@ -88,12 +88,12 @@ function Dec2020() {
     <>
       <Heading>Reflections from December</Heading>
 
-      <BodySection sectionId={getSectionId("materials")}>
+      <BodySection sectionId={getSectionId('materials')}>
         <List spacing={3} listStyleType="disc">
           <ListItem>
             <Link href="https://www.theobservereffect.org/tobi.html" isExternal>
               Insights from CEO of Shopify
-            </Link>{" "}
+            </Link>{' '}
             (finished)
           </ListItem>
           <ListItem>
@@ -102,7 +102,7 @@ function Dec2020() {
               isExternal
             >
               The Couples Workbook
-            </Link>{" "}
+            </Link>{' '}
             (in-progress)
           </ListItem>
           <ListItem>
@@ -111,13 +111,13 @@ function Dec2020() {
               isExternal
             >
               Jeff Bezos on why it's always Day 1 at Amazon
-            </Link>{" "}
+            </Link>{' '}
             (finished)
           </ListItem>
         </List>
       </BodySection>
 
-      <BodySection sectionId={getSectionId("product-focus")}>
+      <BodySection sectionId={getSectionId('product-focus')}>
         <Quote name="Tobi Lütke">
           "My attention is the most liquid and valuable resource that I have. Even back in the day
           when Shopify went public, I spent a good deal of time pre-selling the various investors.
@@ -137,7 +137,7 @@ function Dec2020() {
         </BodyText>
       </BodySection>
 
-      <BodySection sectionId={getSectionId("levelling-up")}>
+      <BodySection sectionId={getSectionId('levelling-up')}>
         <Quote name="Tobi Lütke">
           When I get close to any field, I think about how far I want to go. I'm probably further
           along with programming. I don’t know if I want to get from 90 to 91% in programming when,
@@ -158,13 +158,13 @@ function Dec2020() {
       <BodySection sectionId="customer-centricity">
         <Heading size="sm">Insights from Jeff Bazos</Heading>
         <BodyText>
-          Jeff Bazos in his{" "}
+          Jeff Bazos in his{' '}
           <Link
             href="https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders"
             isExternal
           >
             letter to his shareholders
-          </Link>{" "}
+          </Link>{' '}
           in 2016 talks about techniques and tactics on how to keep Amazon out of Day 2.
         </BodyText>
         <Quote name="Jeff Bazos">
@@ -212,15 +212,15 @@ function Dec2020() {
         <BodyText>
           As company builders we should attempt to structure the organisation so that it is as easy
           as possible to serve the customer. Software systems can be designed in ways which will
-          allow rapid iteration and{" "}
+          allow rapid iteration and{' '}
           <BodyTextWithPopover
             hoverContent={
               <Box>
-                I love how easy{" "}
+                I love how easy{' '}
                 <Link color="black" href="https://render.com" textDecoration="underline" isExternal>
                   Render
-                </Link>{" "}
-                and{" "}
+                </Link>{' '}
+                and{' '}
                 <Link
                   color="black"
                   href="https://rauchg.com/2020/develop-preview-test"
@@ -228,7 +228,7 @@ function Dec2020() {
                   isExternal
                 >
                   Vercel
-                </Link>{" "}
+                </Link>{' '}
                 has made this for me.
               </Box>
             }
@@ -238,20 +238,20 @@ function Dec2020() {
             feature delivery
           </BodyTextWithPopover>
           , throwaway features and A/B testing. Anticipate confusions in your product and embed
-          helpful resources into your designs. Use products like{" "}
+          helpful resources into your designs. Use products like{' '}
           <Link href="https://www.fullstory.com/" isExternal>
             FullStory
-          </Link>{" "}
-          and{" "}
+          </Link>{' '}
+          and{' '}
           <Link href="https://www.http://sentry.io/" isExternal>
             Sentry
-          </Link>{" "}
+          </Link>{' '}
           so that you quickly become aware when customers are having problems, or at least make it
-          easy to reach out{" "}
+          easy to reach out{' '}
           <BodyTextWithPopover
             contentProps={{
-              bg: "#1A202C",
-              minW: 370,
+              bg: '#1A202C',
+              minW: 370
             }}
             hoverContent={
               <Code bg="#1A202C" color="brand.500">
@@ -259,7 +259,7 @@ function Dec2020() {
                 <Text as="span" color="green.500">
                   'showNewMessage'
                 </Text>
-                ,{" "}
+                ,{' '}
                 <Text as="span" color="green.500">
                   'Help me!'
                 </Text>
@@ -270,14 +270,14 @@ function Dec2020() {
             when issues arise
           </BodyTextWithPopover>
           . Set up your employee incentives so your customer support team to treat your customers as
-          kings and queens (instead of being driven by making sales).{" "}
+          kings and queens (instead of being driven by making sales).{' '}
           <Link href="https://twitter.com/Josh_lemmon_" isExternal>
             Josh Lemmon
           </Link>
-          , head of customer success at{" "}
+          , head of customer success at{' '}
           <Link href="https://flick.tech" isExternal>
             Flick.tech
-          </Link>{" "}
+          </Link>{' '}
           is an exemplar of this principle.
         </BodyText>
       </BodySection>
@@ -326,13 +326,13 @@ function Dec2020() {
           3. Layer criticism with reassurance
         </Heading>
         <BodyText mt={2}>
-          I originally read about this in{" "}
+          I originally read about this in{' '}
           <Link
             href="https://www.theschooloflife.com/shop/dating-book-the-love-series-1/"
             isExternal
           >
             The Couples Workbook
-          </Link>{" "}
+          </Link>{' '}
           (a thoughtful and insinuating christmas present from my girlfriend...). It's the idea that
           criticism sometimes feels like a withdrawal of trust. So, the writer suggests that we
           should "convey great admiration and respect as we're announcing our negative insight". A
@@ -356,7 +356,7 @@ function Dec2020() {
           </Quote>
         </Grid>
         <BodyText mt={LayoutConstants.margin.paragraph}>
-          Let's also remember some wise words from Dale Carnegie's{" "}
+          Let's also remember some wise words from Dale Carnegie's{' '}
           <Link href="https://en.wikipedia.org/wiki/How_to_Win_Friends_and_Influence_People">
             How to Win Friends and Influence People
           </Link>
@@ -370,7 +370,7 @@ function Dec2020() {
           understanding and forgiving.
         </Quote>
       </BodySection>
-      <BodySection sectionId={getSectionId("inspiring-change")}>
+      <BodySection sectionId={getSectionId('inspiring-change')}>
         <BodyText mt={0}>
           As an extension on the point about "layer criticism with reassurance", I'm reminded of
           Dale Carnegie's commandments for being a better leader.
@@ -415,7 +415,7 @@ function Dec2020WithSidebar() {
 }
 
 Dec2020WithSidebar.getLayout = (page) => (
-  <Layout title={["Thinking with the door open", "Dec 2020"]}>{page}</Layout>
+  <Layout title={['Thinking with the door open', 'Dec 2020']}>{page}</Layout>
 );
 
 export default Dec2020WithSidebar;
