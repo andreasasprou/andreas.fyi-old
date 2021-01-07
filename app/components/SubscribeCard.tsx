@@ -2,7 +2,7 @@ import React from "react";
 import { Box, BoxProps, Flex, Heading, Text } from "@chakra-ui/layout";
 import { Field, Form } from "react-final-form";
 import { Button, Input, useBoolean, useToast } from "@chakra-ui/react";
-import { localStorageEffect } from "utils/shared";
+import { localStorageEffect } from "utils/shared/shared";
 import { atom, useRecoilState } from "recoil";
 import subscribeToNewsletter from "../mutations/newsletter";
 

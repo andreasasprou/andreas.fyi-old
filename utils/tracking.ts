@@ -1,4 +1,4 @@
-import { isRunningOnServerSide } from "./shared";
+import { isRunningOnServerSide } from "./shared/shared";
 
 export type EventNames = "";
 

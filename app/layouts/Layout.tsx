@@ -15,7 +15,13 @@ function Layout({ title, children, ...rest }: LayoutProps) {
   return (
     <Box w="100%" h="100%" {...rest}>
       <NextSeo title={`${title} - Andreas Asprou`} description="Andreas Asprou." />
-      <Container py="90px" maxW="1300px">
+      <Container
+        py={{
+          base: "20px",
+          md: "90px",
+        }}
+        maxW="1300px"
+      >
         <PageTitle>{typeof title === "string" ? title : title.join(" / ")}</PageTitle>
         {children}
         <Text color="orange.300" fontSize="xl" mt={LayoutConstants.margin.large}>
