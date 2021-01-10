@@ -34,7 +34,7 @@ async function login(page: Page) {
 async function syncGlucoseData() {
   const browser = await puppeteer.launch({
     headless: false,
-    executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    // executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   });
   const page = await browser.newPage();
   await page.setViewport({
