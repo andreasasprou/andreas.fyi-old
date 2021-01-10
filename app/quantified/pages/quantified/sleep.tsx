@@ -4,11 +4,11 @@ import { OuraService } from "quantified/services/oura";
 import { OuraInsights } from "quantified/components/Oura";
 import Layout from "../../../layouts/Layout";
 
-interface QuantifiedPageProps {
+interface SleepQuantifiedPageProps {
   oura: OuraData;
 }
 
-function QuantifiedPage({ oura, ...rest }: QuantifiedPageProps) {
+function SleepQuantifiedPage({ oura, ...rest }: SleepQuantifiedPageProps) {
   console.log(oura);
 
   return (
@@ -29,6 +29,6 @@ export async function getStaticProps() {
   };
 }
 
-QuantifiedPage.getLayout = (page) => <Layout title="Sleep">{page}</Layout>;
+SleepQuantifiedPage.getLayout = (page) => <Layout title="Sleep">{page}</Layout>;
 
-export default QuantifiedPage;
+export default SleepQuantifiedPage;
