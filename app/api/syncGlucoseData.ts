@@ -86,6 +86,12 @@ async function syncGlucoseData() {
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
+    const apiKey = req.body.apiKey;
+
+    if (apiKey !== ServerConstants.apiKey) {
+      throw new Error("Incorrect api key");
+    }
+
     await syncGlucoseData();
     res.status(200).send("Done");
   } catch (error) {

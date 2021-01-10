@@ -10,4 +10,5 @@ export const ServerConstants = {
     password: getStringEnvVar("LIBRE_PASSWORD"),
   },
   recaptchaToken: getStringEnvVar("RECAPTCHA_TOKEN"),
+  apiKey: getStringEnvVar("API_KEY"),
 };
