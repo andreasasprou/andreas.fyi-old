@@ -1,6 +1,6 @@
 datasource postgresql {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -36,6 +36,6 @@ model Session {
 
 model GlucoseReading {
   id                 Int       @default(autoincrement()) @id
-  timestamp          DateTime  @unique
+  timestamp          DateTime
   reading            Float
 }
