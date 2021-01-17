@@ -1,23 +1,23 @@
 const nodeEnv = process.env.NODE_ENV;
 
 export const ClientConstants = {
-  isProd: nodeEnv === "production",
+  isProd: nodeEnv === 'production',
 };
 
-type RoundUps = "dec-2020";
+type RoundUps = 'dec-2020';
 
 export const ROUTES = {
-  Home: "/",
+  Home: '/',
   Thinking: {
-    RoundUps: "/thinking/round-ups",
+    RoundUps: '/thinking/round-ups',
     roundUp: (name: RoundUps) => `/thinking/round-ups/${name}`,
   },
   Preferences: {
-    Stuff: "/preferences/stuff",
-    Podcasts: "/preferences/podcasts",
+    Stuff: '/preferences/stuff',
+    Podcasts: '/preferences/podcasts',
   },
   Quantified: {
-    Sleep: "/quantified/sleep",
+    Sleep: '/quantified/sleep',
   },
 };
 

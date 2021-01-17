@@ -23,11 +23,11 @@ export type Navigator = {
 
 const isAppleTabletOnIos13 = (navigator?: Navigator): boolean => {
   return (
-    typeof navigator !== "undefined" &&
-    navigator.platform === "MacIntel" &&
-    typeof navigator.maxTouchPoints === "number" &&
+    typeof navigator !== 'undefined' &&
+    navigator.platform === 'MacIntel' &&
+    typeof navigator.maxTouchPoints === 'number' &&
     navigator.maxTouchPoints > 1 &&
-    typeof MSStream === "undefined"
+    typeof MSStream === 'undefined'
   );
 };
 
@@ -75,18 +75,18 @@ export type IsMobileParameter = UserAgent | Navigator;
 
 export function isMobileCheck(param?: IsMobileParameter): isMobileResult {
   let nav: Navigator = {
-    userAgent: "",
-    platform: "",
+    userAgent: '',
+    platform: '',
     maxTouchPoints: 0,
   };
 
-  if (!param && typeof navigator !== "undefined") {
+  if (!param && typeof navigator !== 'undefined') {
     nav = {
       userAgent: navigator.userAgent,
       platform: navigator.platform,
       maxTouchPoints: navigator.maxTouchPoints || 0,
     };
-  } else if (typeof param === "string") {
+  } else if (typeof param === 'string') {
     nav.userAgent = param;
   } else if (param && param.userAgent) {
     nav = {
@@ -100,16 +100,16 @@ export function isMobileCheck(param?: IsMobileParameter): isMobileResult {
 
   // Facebook mobile app's integrated browser adds a bunch of strings that
   // match everything. Strip it out if it exists.
-  let tmp = userAgent.split("[FBAN");
-  if (typeof tmp[1] !== "undefined") {
+  let tmp = userAgent.split('[FBAN');
+  if (typeof tmp[1] !== 'undefined') {
     userAgent = tmp[0];
   }
 
   // Twitter mobile app's integrated browser on iPad adds a "Twitter for
   // iPhone" string. Same probably happens on other tablet platforms.
   // This will confuse detection so strip it out if it exists.
-  tmp = userAgent.split("Twitter");
-  if (typeof tmp[1] !== "undefined") {
+  tmp = userAgent.split('Twitter');
+  if (typeof tmp[1] !== 'undefined') {
     userAgent = tmp[0];
   }
 
@@ -178,10 +178,15 @@ export function isMobileCheck(param?: IsMobileParameter): isMobileResult {
   };
 
   result.any =
-    result.apple.device || result.android.device || result.windows.device || result.other.device;
+    result.apple.device ||
+    result.android.device ||
+    result.windows.device ||
+    result.other.device;
   // excludes 'other' devices and ipods, targeting touchscreen phones
-  result.phone = result.apple.phone || result.android.phone || result.windows.phone;
-  result.tablet = result.apple.tablet || result.android.tablet || result.windows.tablet;
+  result.phone =
+    result.apple.phone || result.android.phone || result.windows.phone;
+  result.tablet =
+    result.apple.tablet || result.android.tablet || result.windows.tablet;
 
   return result;
 }

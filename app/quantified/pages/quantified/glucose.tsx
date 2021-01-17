@@ -29,12 +29,14 @@ export async function getStaticProps() {
 
   return {
     props: {
-      data: superjson.stringify(readings)
+      data: superjson.stringify(readings),
     },
-    revalidate: 60 * 60 // one hour
+    revalidate: 60 * 60, // one hour
   };
 }
 
-GlucoseQuantifiedPage.getLayout = (page) => <Layout title="Glucose">{page}</Layout>;
+GlucoseQuantifiedPage.getLayout = (page) => (
+  <Layout title="Glucose">{page}</Layout>
+);
 
 export default GlucoseQuantifiedPage;

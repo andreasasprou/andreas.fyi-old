@@ -1,6 +1,6 @@
-import { isRunningOnServerSide } from "./shared/shared";
+import { isRunningOnServerSide } from './shared/shared';
 
-export type EventNames = "";
+export type EventNames = '';
 
 export const trackEvent = (name: EventNames) => {
   if (isRunningOnServerSide()) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Icon,
   Menu,
@@ -10,11 +10,11 @@ import {
   MenuItemProps,
   MenuList,
   Portal,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "chakra-ui/packages/icons/src/Hamburger";
-import { ROUTES } from "utils/constants/client";
-import { useRouter } from "blitz";
-import { Link as NextLink } from "@blitzjs/core";
+} from '@chakra-ui/react';
+import { HamburgerIcon } from 'chakra-ui/packages/icons/src/Hamburger';
+import { ROUTES } from 'utils/constants/client';
+import { useRouter } from 'blitz';
+import { Link as NextLink } from '@blitzjs/core';
 
 function MenuItemLink({
   to,
@@ -30,8 +30,8 @@ function MenuItemLink({
   return (
     <NextLink href={to}>
       <MenuItem
-        color={isActive ? "brand.500" : "whiteAlpha.900"}
-        bg={pathname.includes(to) ? "whiteAlpha.100" : "transparent"}
+        color={isActive ? 'brand.500' : 'whiteAlpha.900'}
+        bg={pathname.includes(to) ? 'whiteAlpha.100' : 'transparent'}
         {...rest}
       />
     </NextLink>
@@ -50,7 +50,7 @@ export function NavigationMenu({ ...rest }: MenuButtonProps) {
         alignItems="center"
         justfiyContent="center"
         _focus={{
-          bg: "whiteAlpha.200",
+          bg: 'whiteAlpha.200',
         }}
         mt="-3px"
         {...rest}
@@ -61,7 +61,9 @@ export function NavigationMenu({ ...rest }: MenuButtonProps) {
         <MenuList zIndex={15} position="relative">
           <MenuGroup title="Thinking">
             <MenuItemLink to={ROUTES.Thinking.RoundUps}>Round ups</MenuItemLink>
-            <MenuItemLink to={ROUTES.Preferences.Stuff}>Stuff I like</MenuItemLink>
+            <MenuItemLink to={ROUTES.Preferences.Stuff}>
+              Stuff I like
+            </MenuItemLink>
           </MenuGroup>
           <MenuDivider />
           <MenuGroup title="Self-Quantified">

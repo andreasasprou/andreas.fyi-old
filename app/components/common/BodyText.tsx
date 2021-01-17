@@ -1,14 +1,21 @@
-import React from "react";
-import { BoxProps, chakra, Text, TextProps } from "@chakra-ui/react";
-import Tippy from "@tippyjs/react";
-import { Box } from "@chakra-ui/layout";
-import { followCursor } from "tippy.js";
-import { LayoutConstants } from "utils/constants/client";
+import React from 'react';
+import { BoxProps, chakra, Text, TextProps } from '@chakra-ui/react';
+import Tippy from '@tippyjs/react';
+import { Box } from '@chakra-ui/layout';
+import { followCursor } from 'tippy.js';
+import { LayoutConstants } from 'utils/constants/client';
 
 interface BodyTextProps extends TextProps {}
 
 export function BodyText({ ...rest }: BodyTextProps) {
-  return <Text mt={LayoutConstants.margin.paragraph} fontSize="lg" lineHeight={1.8} {...rest} />;
+  return (
+    <Text
+      mt={LayoutConstants.margin.paragraph}
+      fontSize="lg"
+      lineHeight={1.8}
+      {...rest}
+    />
+  );
 }
 
 interface BodyTextWithPopoverProps extends TextProps {
@@ -47,7 +54,7 @@ export function BodyTextWithPopover({
         backgroundSize="6px 2px"
         as="span"
         _hover={{
-          cursor: "help",
+          cursor: 'help',
         }}
         {...rest}
       />

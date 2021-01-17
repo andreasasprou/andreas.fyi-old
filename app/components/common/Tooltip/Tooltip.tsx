@@ -1,6 +1,6 @@
-import React from "react";
-import Tippy, { TippyProps } from "@tippyjs/react";
-import { followCursor } from "tippy.js";
+import React from 'react';
+import Tippy, { TippyProps } from '@tippyjs/react';
+import { followCursor } from 'tippy.js';
 
 interface TooltipProps extends TippyProps {}
 

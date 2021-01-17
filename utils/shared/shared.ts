@@ -1,6 +1,6 @@
-import { DefaultValue } from "recoil";
+import { DefaultValue } from 'recoil';
 
-export const isRunningOnServerSide = () => typeof window === "undefined";
+export const isRunningOnServerSide = () => typeof window === 'undefined';
 
 export const localStorageEffect = (key) => ({ setSelf, onSet }) => {
   if (isRunningOnServerSide()) {

@@ -1,8 +1,8 @@
-import { OuraReadinessDatapoint, OuraSleepDatapoint } from "quantified/types";
+import { OuraReadinessDatapoint, OuraSleepDatapoint } from 'quantified/types';
 
-import oura from "oura";
-import sub from "date-fns/sub";
-import { ServerConstants } from "utils/constants/server";
+import oura from 'oura';
+import sub from 'date-fns/sub';
+import { ServerConstants } from 'utils/constants/server';
 
 export class OuraService {
   private static client: oura.Client;
@@ -19,13 +19,19 @@ export class OuraService {
     const start = sub(new Date(), {
       days: 7,
     });
-    const readinessLastWeek = this.getClient().readiness(start, new Date()) as Promise<{
+    const readinessLastWeek = this.getClient().readiness(
+      start,
+      new Date(),
+    ) as Promise<{
       readiness: OuraReadinessDatapoint[];
     }>;
     const sleepLastWeek = this.getClient().sleep(start, new Date()) as Promise<{
       sleep: OuraSleepDatapoint[];
     }>;
-    const activityLastWeek = this.getClient().activity(start, new Date()) as Promise<{
+    const activityLastWeek = this.getClient().activity(
+      start,
+      new Date(),
+    ) as Promise<{
       activity: any[];
     }>;
 

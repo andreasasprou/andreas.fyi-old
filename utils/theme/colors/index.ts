@@ -1,1 +1,1 @@
-export * from "./gray";
+export * from './gray';

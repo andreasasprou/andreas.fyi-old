@@ -1,18 +1,18 @@
-import React, { Ref } from "react";
-import { Text, TextProps } from "@chakra-ui/layout";
+import React, { Ref } from 'react';
+import { Text, TextProps } from '@chakra-ui/layout';
 
 interface PageTextProps extends TextProps {}
 
 export const PageText = React.forwardRef(function PageText(
   { ...rest }: PageTextProps,
-  ref: Ref<HTMLParagraphElement>
+  ref: Ref<HTMLParagraphElement>,
 ) {
   return (
     <Text
       ref={ref}
       fontSize={{
-        base: "3xl",
-        md: "4xl",
+        base: '3xl',
+        md: '4xl',
       }}
       {...rest}
     />

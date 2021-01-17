@@ -1,6 +1,6 @@
-import { Box, BoxProps } from "@chakra-ui/react";
-import React from "react";
-import { PageSubSection, PageText } from "ui/common";
+import { Box, BoxProps } from '@chakra-ui/react';
+import React from 'react';
+import { PageSubSection, PageText } from 'ui/common';
 
 interface ListeningTimeProps extends BoxProps {
   timeListenedInSeconds: string;
@@ -24,14 +24,17 @@ const formatSeconds = (timeInSeconds: string) => {
   return `${days} days, ${hours} hours and ${minutes} minutes`;
 };
 
-export function ListeningTime({ timeListenedInSeconds, ...rest }: ListeningTimeProps) {
+export function ListeningTime({
+  timeListenedInSeconds,
+  ...rest
+}: ListeningTimeProps) {
   return (
     <PageSubSection spacing={2} {...rest}>
       <PageText>
-        I've listen to{" "}
+        I've listen to{' '}
         <PageText as="span" color="brand.500">
           {formatSeconds(timeListenedInSeconds)}
-        </PageText>{" "}
+        </PageText>{' '}
         of podcasts, according to Pocket Casts API.
       </PageText>
     </PageSubSection>

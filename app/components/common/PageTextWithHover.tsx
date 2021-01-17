@@ -1,8 +1,8 @@
-import React from "react";
-import { Box, TextProps, Text } from "@chakra-ui/layout";
-import { BoxProps } from "@chakra-ui/react";
-import { PageText } from "./PageText";
-import { Tooltip } from "./Tooltip";
+import React from 'react';
+import { Box, TextProps, Text } from '@chakra-ui/layout';
+import { BoxProps } from '@chakra-ui/react';
+import { PageText } from './PageText';
+import { Tooltip } from './Tooltip';
 
 interface PageTextWithHoverProps extends TextProps {
   hoverContent: React.ReactElement | string;
@@ -41,7 +41,7 @@ export function PageTextWithHover({
         backgroundSize="8px 3px"
         as="span"
         _hover={{
-          cursor: "help",
+          cursor: 'help',
         }}
         {...rest}
       >

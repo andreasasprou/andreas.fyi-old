@@ -1,2 +1,2 @@
-export * from "./shared";
-export * from "./is-mobile-check";
+export * from './shared';
+export * from './is-mobile-check';

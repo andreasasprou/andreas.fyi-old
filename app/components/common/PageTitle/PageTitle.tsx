@@ -1,10 +1,10 @@
-import React from "react";
-import { Flex, FlexProps, Text } from "@chakra-ui/layout";
-import { Link, Stack, TextProps } from "@chakra-ui/react";
-import { Link as NextLink, useRouter } from "blitz";
-import { ROUTES } from "utils/constants/client";
-import { useIsMobile } from "utils/hooks";
-import { NavigationMenu } from "./NavigationMenu";
+import React from 'react';
+import { Flex, FlexProps, Text } from '@chakra-ui/layout';
+import { Link, Stack, TextProps } from '@chakra-ui/react';
+import { Link as NextLink, useRouter } from 'blitz';
+import { ROUTES } from 'utils/constants/client';
+import { useIsMobile } from 'utils/hooks';
+import { NavigationMenu } from './NavigationMenu';
 
 interface PageTitleProps extends FlexProps {}
 
@@ -18,13 +18,13 @@ function MenuLink({
   ...rest
 }: TextProps & {
   href: string;
-  children: TextProps["children"];
+  children: TextProps['children'];
 }) {
   const router = useRouter();
   const isActive = router.pathname.includes(href);
 
   return (
-    <PageTitleText textDecoration={isActive ? "underline" : "none"} {...rest}>
+    <PageTitleText textDecoration={isActive ? 'underline' : 'none'} {...rest}>
       <NextLink href={href}>
         <Link>{children}</Link>
       </NextLink>
@@ -38,7 +38,7 @@ export function PageTitle({ children, ...rest }: PageTitleProps) {
       <PageTitleText fontWeight={600}>
         <NextLink href={ROUTES.Home}>
           <Link>Andreas.FYI</Link>
-        </NextLink>{" "}
+        </NextLink>{' '}
         / {children}
       </PageTitleText>
 
@@ -47,12 +47,14 @@ export function PageTitle({ children, ...rest }: PageTitleProps) {
           direction="row"
           spacing={6}
           display={{
-            base: "none",
-            md: "flex",
+            base: 'none',
+            md: 'flex',
           }}
         >
           <MenuLink href={ROUTES.Thinking.RoundUps}>Thinking</MenuLink>
-          <MenuLink href={ROUTES.Quantified.Sleep}>Self Quantification</MenuLink>
+          <MenuLink href={ROUTES.Quantified.Sleep}>
+            Self Quantification
+          </MenuLink>
         </Stack>
         <NavigationMenu ml={6} />
       </Flex>

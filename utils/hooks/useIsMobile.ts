@@ -1,8 +1,10 @@
-import React from "react";
-import { isMobileCheck } from "utils/shared";
-import { isRunningOnServerSide } from "utils/shared/shared";
+import React from 'react';
+import { isMobileCheck } from 'utils/shared';
+import { isRunningOnServerSide } from 'utils/shared/shared';
 
-const useSafeLayoutEffect = !isRunningOnServerSide() ? React.useLayoutEffect : React.useEffect;
+const useSafeLayoutEffect = !isRunningOnServerSide()
+  ? React.useLayoutEffect
+  : React.useEffect;
 
 /**
  * React hook that tracks state of a CSS media query
@@ -11,10 +13,12 @@ const useSafeLayoutEffect = !isRunningOnServerSide() ? React.useLayoutEffect : R
  */
 export function useMediaQuery(query: string | string[]): boolean[] {
   const queries = Array.isArray(query) ? query : [query];
-  const isSupported = !isRunningOnServerSide() && "matchMedia" in window;
+  const isSupported = !isRunningOnServerSide() && 'matchMedia' in window;
 
   const [matches, setMatches] = React.useState(
-    queries.map((query) => (isSupported ? !!window.matchMedia(query).matches : false))
+    queries.map((query) =>
+      isSupported ? !!window.matchMedia(query).matches : false,
+    ),
   );
 
   useSafeLayoutEffect(() => {
@@ -25,7 +29,9 @@ export function useMediaQuery(query: string | string[]): boolean[] {
     const listenerList = mediaQueryList.map((mediaQuery, index) => {
       const listener = () =>
         setMatches((prev) =>
-          prev.map((prevValue, idx) => (index === idx ? !!mediaQuery.matches : prevValue))
+          prev.map((prevValue, idx) =>
+            index === idx ? !!mediaQuery.matches : prevValue,
+          ),
         );
 
       mediaQuery.addListener(listener);
@@ -45,7 +51,7 @@ export function useMediaQuery(query: string | string[]): boolean[] {
 }
 
 export function useIsMobile() {
-  const [matched] = useMediaQuery("(max-width: 768px)");
+  const [matched] = useMediaQuery('(max-width: 768px)');
 
   return isMobileCheck().phone || matched;
 }

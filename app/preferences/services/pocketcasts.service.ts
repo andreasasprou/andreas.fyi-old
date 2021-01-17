@@ -1,11 +1,11 @@
-import PocketCasts from "pocketcasts";
-import { PodcastsData } from "preferences/types";
-import { ServerConstants } from "utils/constants/server";
+import PocketCasts from 'pocketcasts';
+import { PodcastsData } from 'preferences/types';
+import { ServerConstants } from 'utils/constants/server';
 
 export async function getPocketCastsData(): Promise<PodcastsData> {
   const pocketcasts = new PocketCasts(
     ServerConstants.pocketCasts.password,
-    ServerConstants.pocketCasts.password
+    ServerConstants.pocketCasts.password,
   );
 
   await pocketcasts.login();

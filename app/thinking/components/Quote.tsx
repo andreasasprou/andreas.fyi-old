@@ -1,26 +1,31 @@
-import React from "react";
-import { TextProps, Text } from "@chakra-ui/react";
-import { LayoutConstants } from "utils/constants/client";
-import { BodyText } from "ui/common";
+import React from 'react';
+import { TextProps, Text } from '@chakra-ui/react';
+import { LayoutConstants } from 'utils/constants/client';
+import { BodyText } from 'ui/common';
 
 interface QuoteProps extends TextProps {
-  quotePosition?: "left" | "right";
+  quotePosition?: 'left' | 'right';
   name: string;
 }
 
 const quoteBase: TextProps = {
-  position: "absolute",
-  fontFamily: "emoji",
-  fontSize: "4em",
+  position: 'absolute',
+  fontFamily: 'emoji',
+  fontSize: '4em',
   lineHeight: 1,
 };
 
-export function Quote({ quotePosition = "left", children, name, ...rest_ }: QuoteProps) {
+export function Quote({
+  quotePosition = 'left',
+  children,
+  name,
+  ...rest_
+}: QuoteProps) {
   const rest: TextProps = {
     ...rest_,
   };
 
-  if (quotePosition === "left") {
+  if (quotePosition === 'left') {
     rest._before = {
       ...quoteBase,
       content: '"\\201C"',

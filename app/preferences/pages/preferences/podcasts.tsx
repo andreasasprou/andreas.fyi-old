@@ -9,7 +9,9 @@ interface PodcastsPageProps {
 }
 
 function PodcastsPage({ podcasts }: PodcastsPageProps) {
-  return <ListeningTime timeListenedInSeconds={podcasts?.stats?.timeListened} />;
+  return (
+    <ListeningTime timeListenedInSeconds={podcasts?.stats?.timeListened} />
+  );
 }
 
 export async function getServerSideProps() {
@@ -17,8 +19,8 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      podcasts: await pocdcasts
-    }
+      podcasts: await pocdcasts,
+    },
   };
 }
 

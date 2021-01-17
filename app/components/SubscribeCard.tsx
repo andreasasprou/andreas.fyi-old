@@ -1,10 +1,10 @@
-import React from "react";
-import { Box, BoxProps, Flex, Heading, Text } from "@chakra-ui/layout";
-import { Field, Form } from "react-final-form";
-import { Button, Input, useBoolean, useToast } from "@chakra-ui/react";
-import { localStorageEffect } from "utils/shared/shared";
-import { atom, useRecoilState } from "recoil";
-import subscribeToNewsletter from "../mutations/newsletter";
+import React from 'react';
+import { Box, BoxProps, Flex, Heading, Text } from '@chakra-ui/layout';
+import { Field, Form } from 'react-final-form';
+import { Button, Input, useBoolean, useToast } from '@chakra-ui/react';
+import { localStorageEffect } from 'utils/shared/shared';
+import { atom, useRecoilState } from 'recoil';
+import subscribeToNewsletter from '../mutations/newsletter';
 
 interface SubscribeCardProps extends BoxProps {}
 
@@ -15,9 +15,9 @@ interface FormValues {
 const getFieldName = (k: keyof FormValues) => k;
 
 const hasSubscribedState = atom({
-  key: "subscribe/hasSubscribed",
+  key: 'subscribe/hasSubscribed',
   default: false,
-  effects_UNSTABLE: [localStorageEffect("subscribe/hasSubscribed")],
+  effects_UNSTABLE: [localStorageEffect('subscribe/hasSubscribed')],
 });
 
 export function SubscribeCard({ ...rest }: SubscribeCardProps) {
@@ -29,7 +29,7 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
 
     try {
       if (!email) {
-        throw new Error("Please provide an email.");
+        throw new Error('Please provide an email.');
       }
 
       await subscribeToNewsletter({ email });
@@ -38,7 +38,7 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
     } catch (error) {
       toast({
         title: error.message,
-        status: "error",
+        status: 'error',
       });
       console.error(error);
     }
@@ -46,13 +46,20 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
   };
 
   return (
-    <Box p={4} maxW={500} borderRadius="md" bg="whiteAlpha.200" position="relative" {...rest}>
+    <Box
+      p={4}
+      maxW={500}
+      borderRadius="md"
+      bg="whiteAlpha.200"
+      position="relative"
+      {...rest}
+    >
       <Heading mb={1} size="md">
         Get the latest from me
       </Heading>
       <Text mb={4}>
-        If you want to hear about updates about this place (new posts, new awesome products I find
-        etc) add your email below:
+        If you want to hear about updates about this place (new posts, new
+        awesome products I find etc) add your email below:
       </Text>
       {hasSubscribed ? (
         <Text color="brand.500" fontWeight={500}>
@@ -64,21 +71,21 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
           render={({ handleSubmit }) => (
             <Flex
               direction={{
-                base: "column",
-                md: "row",
+                base: 'column',
+                md: 'row',
               }}
               as="form"
               onSubmit={handleSubmit}
             >
-              <Field name={getFieldName("email")}>
+              <Field name={getFieldName('email')}>
                 {({ input }) => (
                   <Input
                     bg="whiteAlpha.50"
                     placeholder="andyasprou@gmail.com"
                     w="100%"
                     _focus={{
-                      borderColor: "brand.500",
-                      bg: "blackAlpha.800",
+                      borderColor: 'brand.500',
+                      bg: 'blackAlpha.800',
                     }}
                     isDisabled={isLoading}
                     type="email"
