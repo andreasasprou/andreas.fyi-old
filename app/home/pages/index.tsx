@@ -1,10 +1,9 @@
-import { BlitzPage } from "blitz";
-import Layout from "app/layouts/Layout";
-import React from "react";
-import { NextSeo } from "next-seo";
-import { Container, Link, LinkProps } from "@chakra-ui/layout";
-import { PageSection, PageText, PageTitle } from "ui/common";
-import { DigitalProducts, LifePhilosophies, OptimizeHealth, Relationships } from "home/components";
+import { BlitzPage } from 'blitz';
+import Layout from 'app/layouts/Layout';
+import React from 'react';
+import { Link, LinkProps } from '@chakra-ui/layout';
+import { PageSection, PageText } from 'ui/common';
+import { DigitalProducts, LifePhilosophies, OptimizeHealth, Relationships } from 'home/components';
 
 const HomeLink = (props: LinkProps) => (
   <Link
@@ -13,7 +12,7 @@ const HomeLink = (props: LinkProps) => (
     borderRadius="md"
     fontWeight="inherit"
     _hover={{
-      opacity: 0.9,
+      opacity: 0.9
     }}
     {...props}
   />
@@ -36,26 +35,26 @@ const Home: BlitzPage = () => {
       </PageSection>
       <PageSection>
         <PageText>
-          You'll find me working on{" "}
+          You'll find me working on{' '}
           <HomeLink href="https://www.flick.tech" target="_blank">
             Flick.tech
-          </HomeLink>{" "}
-          and{" "}
+          </HomeLink>{' '}
+          and{' '}
           <HomeLink href="https://www.dweet.com" target="_blank">
             Dweet.com
           </HomeLink>
         </PageText>
         <PageText>
-          In the future, I will continue building{" "}
+          In the future, I will continue building{' '}
           <HomeLink href="https://www.garn.io" target="_blank">
             Garn.io
           </HomeLink>
           . If you're interested in helping online businesses reduce churn, please reach out.
         </PageText>
         <PageText>
-          If you'd like to get in touch, consider{" "}
+          If you'd like to get in touch, consider{' '}
           <HomeLink href="mailto:andyasprou@hey.com?subject=Hello">writing an email</HomeLink> or
-          sending a{" "}
+          sending a{' '}
           <HomeLink href="https://twitter.com/andyasprou/" target="_blank">
             tweet
           </HomeLink>

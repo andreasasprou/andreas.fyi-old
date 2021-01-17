@@ -6,9 +6,9 @@ export const ServerConstants = {
     listId: getStringEnvVar("MAILCHIMP_LIST_ID"),
   },
   libre: {
-    email: getStringEnvVar("LIBRE_EMAIL"),
-    password: getStringEnvVar("LIBRE_PASSWORD"),
+    email: getStringEnvVar("LIBRE_EMAIL", ""),
+    password: getStringEnvVar("LIBRE_PASSWORD", ""),
   },
-  recaptchaToken: getStringEnvVar("RECAPTCHA_TOKEN"),
+  recaptchaToken: getStringEnvVar("RECAPTCHA_TOKEN", ""),
   apiKey: getStringEnvVar("API_KEY"),
 };
