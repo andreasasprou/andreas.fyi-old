@@ -1,6 +1,6 @@
 import React from "react";
 import { OuraData } from "quantified/types";
-import { OuraService } from "quantified/services/oura";
+import { OuraService } from "quantified/services/sleep";
 import { OuraInsights } from "quantified/components/Oura";
 import Layout from "../../../layouts/Layout";
 
