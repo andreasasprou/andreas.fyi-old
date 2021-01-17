@@ -38,8 +38,6 @@ function MenuItemLink({
   );
 }
 
-interface NavigationMenuProps extends MenuButtonProps {}
-
 export function NavigationMenu({ ...rest }: MenuButtonProps) {
   return (
     <Menu autoSelect={false}>

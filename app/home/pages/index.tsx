@@ -22,7 +22,15 @@ const Home: BlitzPage = () => {
   return (
     <>
       <PageSection>
-        <PageText>I'm a deliberate, unconventional and obsessive individual.</PageText>
+        <PageText>
+          Hey, I'm Andreas. A deliberate, unconventional and obsessive individual.
+        </PageText>
+        <PageText>
+          The main purpose of this site is to document the lessons from <MyJourney /> over the last
+          few years.
+        </PageText>
+      </PageSection>
+      <PageSection>
         <PageText>
           I live to work ("workaholic"): attempting to optimize my life around being able to create
           exceptional <DigitalProducts /> that feel like magic to use and learn as much as possible.
@@ -31,12 +39,6 @@ const Home: BlitzPage = () => {
         <PageText>
           In my down time I write & think deeply about my life philosophies, optimizing my health
           and my attempt to build strong relationships.
-        </PageText>
-      </PageSection>
-      <PageSection>
-        <PageText>
-          The main purpose of this site is to document the lessons from <MyJourney /> over the last
-          few years.
         </PageText>
       </PageSection>
       <PageSection>
