@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/layout";
+import { Box, ListItem, Text, Link } from "@chakra-ui/layout";
+import { LinkProps, List } from "@chakra-ui/react";
 import PageTextWithHover from "../../components/common/PageTextWithHover";
 
 const Content = ({ text }: { text: string }) => (
@@ -20,28 +21,40 @@ export function DigitalProducts() {
   );
 }
 
-export function OptimizeHealth() {
-  return (
-    <PageTextWithHover hoverContent={<Content text="my diet, routines, habits etc" />}>
-      optimizing my health
-    </PageTextWithHover>
-  );
-}
+const BoldExternalLink = (props: LinkProps) => (
+  <Link fontWeight={500} textDecoration="underline" isExternal {...props} />
+);
 
-export function LifePhilosophies() {
-  return (
-    <PageTextWithHover hoverContent={<Content text="my life philosophies" />}>
-      life philosophies
-    </PageTextWithHover>
-  );
-}
-
-export function Relationships() {
+export function MyJourney() {
   return (
     <PageTextWithHover
-      hoverContent={<Content text="how I navigate relationships and mental health" />}
+      contentProps={{
+        minW: 400,
+        maxW: "auto",
+      }}
+      hoverContent={
+        <List spacing={3} listStyleType="disc">
+          <ListItem>
+            Bootstrapping my first business{" "}
+            <BoldExternalLink href="https://www.flick.tech">Flick.tech</BoldExternalLink> to $2M ARR
+            in a couple of years whilst graduating computer science at Imperial College London in
+            the top 3 of the cohort.
+          </ListItem>
+          <ListItem>
+            Co-founding <BoldExternalLink href="https://www.dweet.com">Dweet.com</BoldExternalLink>{" "}
+            - the first business that is successfully bringing the world of freelance work to the
+            fashion & retail industries.
+          </ListItem>
+          <ListItem>
+            Founding & solo-developing multiple other side-projects{" "}
+            <BoldExternalLink href="https://combox.app">Combox</BoldExternalLink> &{" "}
+            <BoldExternalLink href="https://garn.io">Garn.io</BoldExternalLink>.
+          </ListItem>
+        </List>
+      }
+      interactive
     >
-      build strong relationships
+      the journey I've been on
     </PageTextWithHover>
   );
 }
