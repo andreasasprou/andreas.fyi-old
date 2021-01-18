@@ -4,7 +4,7 @@ import { ServerConstants } from 'utils/constants/server';
 
 export async function getPocketCastsData(): Promise<PodcastsData> {
   const pocketcasts = new PocketCasts(
-    ServerConstants.pocketCasts.password,
+    ServerConstants.pocketCasts.email,
     ServerConstants.pocketCasts.password,
   );
 

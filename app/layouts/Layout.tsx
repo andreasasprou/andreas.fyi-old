@@ -48,7 +48,7 @@ function Layout({ title, children, ...rest }: LayoutProps) {
             href="https://chakra-ui.com/"
             isExternal
           >
-            Charka UI
+            Chakra UI
           </Link>{' '}
           and hosted on{' '}
           <Link
