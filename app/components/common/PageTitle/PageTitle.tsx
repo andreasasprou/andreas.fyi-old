@@ -9,7 +9,7 @@ import { NavigationMenu } from './NavigationMenu';
 interface PageTitleProps extends FlexProps {}
 
 const PageTitleText = (props: TextProps) => (
-  <Text lineHeight={1.4} color="orange.300" fontSize="xl" {...props} />
+  <Text lineHeight={1.5} color="orange.300" fontSize="xl" {...props} />
 );
 
 function MenuLink({
@@ -33,13 +33,27 @@ function MenuLink({
 }
 
 export function PageTitle({ children, ...rest }: PageTitleProps) {
+  const isMobile = useIsMobile();
+
   return (
     <Flex align="center" {...rest}>
-      <PageTitleText fontWeight={600}>
-        <NextLink href={ROUTES.Home}>
-          <Link>Andreas.FYI</Link>
-        </NextLink>{' '}
-        / {children}
+      <PageTitleText
+        fontWeight={600}
+        maxW={{
+          base: '100%',
+          md: '60%',
+        }}
+      >
+        {isMobile ? (
+          children
+        ) : (
+          <>
+            <NextLink href={ROUTES.Home}>
+              <Link>Andreas.FYI</Link>
+            </NextLink>{' '}
+            / {children}
+          </>
+        )}
       </PageTitleText>
 
       <Flex ml="auto" align="center">
@@ -52,9 +66,7 @@ export function PageTitle({ children, ...rest }: PageTitleProps) {
           }}
         >
           <MenuLink href={ROUTES.Thinking.RoundUps}>Thinking</MenuLink>
-          <MenuLink href={ROUTES.Quantified.Sleep}>
-            Self Quantification
-          </MenuLink>
+          <MenuLink href={ROUTES.Engineering.Home}>Engineering</MenuLink>
         </Stack>
         <NavigationMenu ml={6} />
       </Flex>

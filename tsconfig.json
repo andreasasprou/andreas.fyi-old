@@ -25,7 +25,8 @@
       "thinking/*": ["app/thinking/*"],
       "layouts/*": ["app/layouts/*"],
       "quantified/*": ["app/quantified/*"],
-      "preferences/*": ["app/preferences/*"]
+      "preferences/*": ["app/preferences/*"],
+      "engineering/*": ["app/engineering/*"]
     }
   },
   "exclude": ["node_modules", ".next", ".blitz"],

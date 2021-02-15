@@ -468,7 +468,7 @@ function Dec2020WithSidebar() {
 }
 
 Dec2020WithSidebar.getLayout = (page) => (
-  <Layout title={['Thinking with the door open', 'Dec 2020']}>{page}</Layout>
+  <Layout title="Thinking with the door open - Dec 2020">{page}</Layout>
 );
 
 export default Dec2020WithSidebar;

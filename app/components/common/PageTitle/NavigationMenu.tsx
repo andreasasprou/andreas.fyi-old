@@ -61,6 +61,9 @@ export function NavigationMenu({ ...rest }: MenuButtonProps) {
         <MenuList zIndex={15} position="relative">
           <MenuGroup title="Thinking">
             <MenuItemLink to={ROUTES.Thinking.RoundUps}>Round ups</MenuItemLink>
+            <MenuItemLink to={ROUTES.Engineering.Home}>
+              Engineering
+            </MenuItemLink>
             <MenuItemLink to={ROUTES.Preferences.Stuff}>
               Stuff I like
             </MenuItemLink>

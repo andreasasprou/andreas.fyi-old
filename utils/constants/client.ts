@@ -2,12 +2,19 @@ const nodeEnv = process.env.NODE_ENV;
 
 export const ClientConstants = {
   isProd: nodeEnv === 'production',
+  baseUrl:
+    nodeEnv === 'development' ? 'http://localhost:3000' : 'https://andreas.fyi',
 };
 
 type RoundUps = 'dec-2020';
+type EngineeringArticle = 'nextjs-auth-skeleton-loaders';
 
 export const ROUTES = {
   Home: '/',
+  Engineering: {
+    Home: '/engineering',
+    article: (name: EngineeringArticle) => `/engineering/${name}`,
+  },
   Thinking: {
     RoundUps: '/thinking/round-ups',
     roundUp: (name: RoundUps) => `/thinking/round-ups/${name}`,
