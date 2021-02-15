@@ -2027,6 +2027,11 @@ const notionStyles = css`
       max-width: 100%;
     }
 
+    .notion-asset-wrapper-video {
+      max-height: 250px;
+      margin: 1rem auto;
+    }
+
     .notion-asset-wrapper-full {
       max-width: 100vw;
     }
