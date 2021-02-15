@@ -113,7 +113,7 @@ const notionStyles = css`
   }
 
   .notion {
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.75;
     color: var(--fg-color);
     caret-color: var(--fg-color);
@@ -226,6 +226,7 @@ const notionStyles = css`
 
   .notion-aside-table-of-contents .notion-table-of-contents-item-body {
     border: 0 none;
+    font-size: 1rem;
   }
 
   .notion-table-of-contents-active-item {
@@ -1629,7 +1630,7 @@ const notionStyles = css`
     color: rgba(255, 255, 255, 0.8);
 
     padding: 6px 2px;
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 1.5;
     display: flex;
     align-items: center;
@@ -2273,7 +2274,7 @@ const notionStyles = css`
     overflow: hidden;
     outline: none;
 
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.5;
     color: rgb(55, 53, 47);
     caret-color: rgb(55, 53, 47);
