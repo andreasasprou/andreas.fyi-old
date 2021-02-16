@@ -36,7 +36,7 @@ interface PageProps {
 }
 
 const title =
-  "Recreating Vercel's static in-app page skeleton loaders in Next.js";
+  "Patterns for recreating Vercel's static in-app page skeleton loaders in Next.js";
 
 const url = `https://andreas.fyi${ROUTES.Engineering.article(
   'nextjs-auth-skeleton-loaders',

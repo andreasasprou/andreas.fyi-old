@@ -26,8 +26,8 @@ function Engineeringpage() {
           <Box mr={4}>
             <Text color="blue.300" fontSize="lg" fontWeight={500} mb={2}>
               <span>
-                Recreating Vercel's static in-app page skeleton loaders in
-                Next.js
+                Patterns for recreating Vercel's static in-app page skeleton
+                loaders in Next.js
               </span>
             </Text>
             <Text fontSize="lg">
