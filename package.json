@@ -2,99 +2,48 @@
   "name": "andreas.fyi",
   "version": "1.0.0",
   "scripts": {
-    "start": "blitz start",
-    "dev": "blitz start",
-    "studio": "blitz db studio",
-    "migrate": "blitz db migrate",
+    "dev": "blitz dev",
     "build": "blitz build",
-    "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx .",
-    "test": "jest --passWithNoTests",
-    "test:watch": "jest --watch"
+    "start": "blitz start",
+    "studio": "blitz prisma studio",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepare": "husky install"
   },
-  "browserslist": [
-    "defaults"
-  ],
   "prisma": {
     "schema": "db/schema.prisma"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && pretty-quick --staged",
-      "pre-push": "tsc && npm run lint && npm run test"
-    }
+  "prettier": {
+    "semi": false,
+    "printWidth": 100
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{js,ts,tsx}": [
       "eslint --fix"
     ]
   },
   "dependencies": {
-    "@chakra-ui/react": "1.0.3",
-    "@emotion/react": "11.1.2",
-    "@emotion/styled": "11.0.0",
-    "@prisma/cli": "2.12.0",
-    "@prisma/client": "2.12.0",
-    "@tippyjs/react": "4.2.0",
-    "blitz": "0.27.0",
-    "chakra-ui": "https://github.com/chakra-ui/chakra-ui#develop",
-    "date-fns": "2.16.1",
-    "final-form": "4.20.1",
-    "framer-motion": "2.9.5",
-    "next-seo": "4.17.0",
-    "notion-client": "4.2.17",
-    "nprogress": "0.2.0",
-    "oura": "0.6.4",
-    "pocketcasts": "1.0.1",
-    "prismjs": "1.23.0",
-    "puppeteer": "5.5.0",
-    "puppeteer-extra": "3.1.15",
-    "puppeteer-extra-plugin-recaptcha": "3.3.0",
-    "react": "0.0.0-experimental-4ead6b530",
-    "react-dom": "0.0.0-experimental-4ead6b530",
-    "react-error-boundary": "2.3.2",
-    "react-final-form": "6.5.2",
-    "react-notion-x": "4.2.17",
-    "react-tippy": "1.4.0",
-    "react-tweet-embed": "1.2.2",
-    "recoil": "0.1.2",
-    "secure-password": "4.0.0",
-    "superjson": "1.4.1",
-    "typescript": "4.1.2",
-    "zod": "1.11.11"
+    "@prisma/client": "2.30.3",
+    "blitz": "0.40.0-canary.7",
+    "react-dom": "alpha",
+    "react": "alpha",
+    "zod": "3.8.2",
+    "final-form": "4.20.2",
+    "react-final-form": "6.5.3"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.11.6",
-    "@testing-library/react": "11.2.2",
-    "@testing-library/react-hooks": "3.7.0",
-    "@types/date-fns": "2.6.0",
-    "@types/gtag.js": "0.0.3",
-    "@types/jest": "26.0.18",
-    "@types/prismjs": "1.16.3",
-    "@types/react": "16.14.2",
-    "@types/secure-password": "3.1.0",
-    "@typescript-eslint/eslint-plugin": "4.11.1",
-    "@typescript-eslint/parser": "4.11.1",
-    "babel-eslint": "10.1.0",
-    "eslint": "7.15.0",
-    "eslint-config-prettier": "6.11.0",
-    "eslint-config-react-app": "5.2.1",
-    "eslint-plugin-flowtype": "5.2.0",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-jest-dom": "3.1.4",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-prettier": "3.1.4",
-    "eslint-plugin-quick-prettier": "0.0.29",
-    "eslint-plugin-react": "7.21.5",
-    "eslint-plugin-react-hooks": "4.2.0",
-    "husky": "4.3.5",
-    "jest": "26.6.3",
-    "jest-environment-jsdom-fourteen": "1.0.1",
-    "jest-watch-typeahead": "0.6.1",
-    "lint-staged": "10.5.3",
-    "prettier": "2.2.1",
-    "pretty-quick": "3.1.0",
-    "react-test-renderer": "16.14.0",
-    "ts-jest": "26.4.4"
+    "@types/preview-email": "2.0.1",
+    "@types/react": "17.0.19",
+    "eslint": "7.32.0",
+    "husky": "6.0.0",
+    "lint-staged": "10.5.4",
+    "prettier-plugin-prisma": "0.15.0",
+    "prettier": "2.3.2",
+    "pretty-quick": "3.1.1",
+    "preview-email": "3.0.5",
+    "prisma": "2.30.3",
+    "typescript": "~4.3"
   },
   "private": true
 }

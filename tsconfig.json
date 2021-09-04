@@ -9,6 +9,7 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -16,19 +17,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "tsBuildInfoFile": ".tsbuildinfo",
-    "paths": {
-      "utils/*": ["utils/*"],
-      "theme": ["utils/theme/index.ts"],
-      "ui/*": ["app/components/*"],
-      "home/*": ["app/home/*"],
-      "thinking/*": ["app/thinking/*"],
-      "layouts/*": ["app/layouts/*"],
-      "quantified/*": ["app/quantified/*"],
-      "preferences/*": ["app/preferences/*"],
-      "engineering/*": ["app/engineering/*"]
-    }
+    "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "exclude": ["node_modules", ".next", ".blitz"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": ["node_modules", "**/*.e2e.ts", "cypress"],
+  "include": ["blitz-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
