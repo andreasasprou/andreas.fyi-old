@@ -1,40 +1,68 @@
+import 'nprogress/nprogress.css';
+import 'utils/global.css';
+import NProgress from 'nprogress';
 import {
   AppProps,
-  ErrorBoundary,
   ErrorComponent,
+  useRouter,
   AuthenticationError,
   AuthorizationError,
-  ErrorFallbackProps,
-  useQueryErrorResetBoundary,
-} from "blitz"
-import LoginForm from "app/auth/components/LoginForm"
+  Router,
+  ErrorBoundary,
+  FallbackProps,
+} from 'blitz';
+import { Box, ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
+import { RecoilRoot } from 'recoil';
+import { theme } from 'theme';
 
-export default function App({ Component, pageProps }: AppProps) {
-  const getLayout = Component.getLayout || ((page) => page)
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
+
+function App({ Component, pageProps }: AppProps) {
+  const getLayout = Component.getLayout || ((page) => page);
+  const router = useRouter();
 
   return (
-    <ErrorBoundary
-      FallbackComponent={RootErrorFallback}
-      onReset={useQueryErrorResetBoundary().reset}
-    >
-      {getLayout(<Component {...pageProps} />)}
-    </ErrorBoundary>
-  )
+    <RecoilRoot>
+      <ChakraProvider theme={theme} resetCSS>
+        <ColorModeProvider
+          value="dark"
+          options={{
+            initialColorMode: 'dark',
+            useSystemColorMode: false,
+          }}
+        >
+          <ErrorBoundary
+            FallbackComponent={RootErrorFallback}
+            resetKeys={[router.asPath]}
+          >
+            {getLayout(<Component {...pageProps} />)}
+          </ErrorBoundary>
+        </ColorModeProvider>
+      </ChakraProvider>
+    </RecoilRoot>
+  );
 }
 
-function RootErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
+function RootErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
   if (error instanceof AuthenticationError) {
-    return <LoginForm onSuccess={resetErrorBoundary} />
+    return <Box />;
   } else if (error instanceof AuthorizationError) {
     return (
       <ErrorComponent
-        statusCode={error.statusCode}
+        statusCode={(error as any).statusCode}
         title="Sorry, you are not authorized to access this"
       />
-    )
+    );
   } else {
     return (
-      <ErrorComponent statusCode={error.statusCode || 400} title={error.message || error.name} />
-    )
+      <ErrorComponent
+        statusCode={(error as any)?.statusCode || 400}
+        title={error?.message || error?.name}
+      />
+    );
   }
 }
+
+export default App;

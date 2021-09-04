@@ -1,173 +1,62 @@
-[![Blitz.js](https://raw.githubusercontent.com/blitz-js/art/master/github-cover-photo.png)](https://blitzjs.com)
+# andreas.fyi
 
-This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
+This isn't a blog. More of an app? I write all my posts in React. Keen to introduce MDX into the mix.
 
-# **andreas.fyi**
+## Why does this exist?
 
-## Getting Started
+- Publicly documenting what I learn month-to-month. This might include anything from experiences growing [Flick.tech](https://www.flick.tech) & [Dweet](https://www.dweet.com), my content diet (books, podcasts, blogs etc) to the lifestyle experiments I'm running (keto, intermittent fasting etc).
+- Listing things I love across:
+  - Engineering practices
+  - Products/tools
+  - Blogs/books/podcasts
+  - Health products
+  - Places
+- For others to discover the lessons from the journey I've been on over the last few years:
+  - Bootstrapping my first business (Flick.tech) to $2M ARR in 3 years whilst graduating computer science at Imperial College London in the top 3 of the cohort.
+  - Co-founding [Dweet.com](https://www.dweet.com) - the first business that is successfully bringing the world of freelance work to the fashion & retail industries.
+  - Founding & solo-developing multiple other side-projects [Combox](https://combox.app) & [Garn.io](https://garn.io).
+- Self quantification dashboards:
+  - Sleep, HRV, RHR via [Oura ring](https://ouraring.com/) API
+  - Metabolic health via Freestyle Libre glucose monitor (similar to [Levels](https://www.levelshealth.com/))
+  - Podcasts consumption via [Pocket casts](https://www.pocketcasts.com/) API
+  - Exercise via Oura ring & Apple watch
+  - Body vitals via [FitTrack](https://uk.fittrack.com/products/fittrack-smart-body-bmi-scale)
+  - Articles via [Pocket](https://getpocket.com/) API
 
-Run your app in the development mode.
+## Running Locally
 
-```
-blitz dev
-```
+1. Clone and install deps
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Environment Variables
-
-Ensure the `.env.local` file has required environment variables:
-
-```
-DATABASE_URL=postgresql://<YOUR_DB_USERNAME>@localhost:5432/andreas.fyi
-```
-
-Ensure the `.env.test.local` file has required environment variables:
-
-```
-DATABASE_URL=postgresql://<YOUR_DB_USERNAME>@localhost:5432/andreas.fyi_test
-```
-
-## Tests
-
-Runs your tests using Jest.
-
-```
-yarn test
+```bash
+git clone https://github.com/leerob/leerob.io.git
+cd leerob.io
+yarn
 ```
 
-Blitz comes with a test setup using [Jest](https://jestjs.io/) and [react-testing-library](https://testing-library.com/).
+2. Populate your `.env.local` file
 
-## Commands
-
-Blitz comes with a powerful CLI that is designed to make development easy and fast. You can install it with `npm i -g blitz`
-
-```
-  blitz [COMMAND]
-
-  dev       Start a development server
-  build     Create a production build
-  start     Start a production server
-  export    Export your Blitz app as a static application
-  prisma    Run prisma commands
-  generate  Generate new files for your Blitz project
-  console   Run the Blitz console REPL
-  install   Install a recipe
-  help      Display help for blitz
-  test      Run project tests
+```.env
+MAILCHIMP_API_KEY=
+MAILCHIMP_LIST_ID=
+DATABASE_URL="postgresql://username@localhost:5432/andreas.fyi"
+API_KEY=something_secure
 ```
 
-You can read more about it on the [CLI Overview](https://blitzjs.com/docs/cli-overview) documentation.
+3. Setup the database
 
-## What's included?
-
-Here is the starting structure of your app.
-
-```
-andreas.fyi
-├── app/
-│   ├── api/
-│   ├── auth/
-│   │   ├── components/
-│   │   │   ├── LoginForm.tsx
-│   │   │   └── SignupForm.tsx
-│   │   ├── mutations/
-│   │   │   ├── changePassword.ts
-│   │   │   ├── forgotPassword.test.ts
-│   │   │   ├── forgotPassword.ts
-│   │   │   ├── login.ts
-│   │   │   ├── logout.ts
-│   │   │   ├── resetPassword.test.ts
-│   │   │   ├── resetPassword.ts
-│   │   │   └── signup.ts
-│   │   ├── pages/
-│   │   │   ├── forgot-password.tsx
-│   │   │   ├── login.tsx
-│   │   │   ├── reset-password.tsx
-│   │   │   └── signup.tsx
-│   │   └── validations.ts
-│   ├── core/
-│   │   ├── components/
-│   │   │   ├── Form.tsx
-│   │   │   └── LabeledTextField.tsx
-│   │   ├── hooks/
-│   │   │   └── useCurrentUser.ts
-│   │   └── layouts/
-│   │       └── Layout.tsx
-│   ├── pages/
-│   │   ├── 404.tsx
-│   │   ├── _app.tsx
-│   │   ├── _document.tsx
-│   │   ├── index.test.tsx
-│   │   └── index.tsx
-│   └── users/
-│       └── queries/
-│           └── getCurrentUser.ts
-├── db/
-│   ├── index.ts
-│   ├── schema.prisma
-│   └── seeds.ts
-├── integrations/
-├── mailers/
-│   └── forgotPasswordMailer.ts
-├── public/
-│   ├── favicon.ico*
-│   └── logo.png
-├── test/
-│   ├── setup.ts
-│   └── utils.tsx
-├── README.md
-├── babel.config.js
-├── blitz.config.js
-├── jest.config.js
-├── package.json
-├── tsconfig.json
-├── types.d.ts
-├── types.ts
-└── yarn.lock
+```bash
+yarn migrate
 ```
 
-These files are:
+4. Start the dev server
 
-- The `app/` folder is a container for most of your project. This is where you’ll put any pages or API routes.
+```bash
+yarn dev
+```
 
-- `db/` is where your database configuration goes. If you’re writing models or checking migrations, this is where to go.
+Open http://localhost:3000 with your browser to see the result.
 
-- `public/` is a folder where you will put any static assets. If you have images, files, or videos which you want to use in your app, this is where to put them.
-
-- `integrations/` is a folder to put all third-party integrations like with Stripe, Sentry, etc.
-
-- `test/` is a folder where you can put test utilities and integration tests.
-
-- `package.json` contains information about your dependencies and devDependencies. If you’re using a tool like `npm` or `yarn`, you won’t have to worry about this much.
-
-- `tsconfig.json` is our recommended setup for TypeScript.
-
-- `.babelrc.js`, `.env`, etc. ("dotfiles") are configuration files for various bits of JavaScript tooling.
-
-- `blitz.config.js` is for advanced custom configuration of Blitz. It extends [`next.config.js`](https://nextjs.org/docs/api-reference/next.config.js/introduction).
-
-- `jest.config.js` contains config for Jest tests. You can [customize it if needed](https://jestjs.io/docs/en/configuration).
-
-You can read more about it in the [File Structure](https://blitzjs.com/docs/file-structure) section of the documentation.
-
-### Tools included
-
-Blitz comes with a set of tools that corrects and formats your code, facilitating its future maintenance. You can modify their options and even uninstall them.
-
-- **ESLint**: It lints your code: searches for bad practices and tell you about it. You can customize it via the `.eslintrc.js`, and you can install (or even write) plugins to have it the way you like it. It already comes with the [`blitz`](https://github.com/blitz-js/blitz/tree/canary/packages/eslint-config) config, but you can remove it safely. [Learn More](https://eslint.org).
-- **Husky**: It adds [githooks](https://git-scm.com/docs/githooks), little pieces of code that get executed when certain Git events are triggerd. For example, `pre-commit` is triggered just before a commit is created. You can see the current hooks inside `.husky/`. If are having problems commiting and pushing, check out ther [troubleshooting](https://typicode.github.io/husky/#/?id=troubleshoot) guide. [Learn More](https://typicode.github.io/husky).
-- **Prettier**: It formats your code to look the same everywhere. You can configure it via the `.prettierrc` file. The `.prettierignore` contains the files that should be ignored by Prettier; useful when you have large files or when you want to keep a custom formatting. [Learn More](https://prettier.io).
-
-## Learn more
-
-Read the [Blitz.js Documentation](https://blitzjs.com/docs/getting-started) to learn more.
-
-The Blitz community is warm, safe, diverse, inclusive, and fun! Feel free to reach out to us in any of our communication channels.
-
-- [Website](https://blitzjs.com/)
-- [Discord](https://discord.blitzjs.com/)
-- [Report an issue](https://github.com/blitz-js/blitz/issues/new/choose)
-- [Forum discussions](https://github.com/blitz-js/blitz/discussions)
-- [How to Contribute](https://blitzjs.com/docs/contributing)
-- [Sponsor or donate](https://github.com/blitz-js/blitz#sponsors-and-donations)
+### Built using 
+- [Blitz.js](https://blitzjs.com/)
+- [Vercel](https://vercel.com)
+- [Chakra](https://chakra-ui.com/)

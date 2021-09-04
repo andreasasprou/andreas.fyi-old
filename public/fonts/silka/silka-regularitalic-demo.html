@@ -9,6 +9,7 @@
       charset="utf-8"
     ></script>
     <script type="text/javascript">
+<<<<<<< HEAD
       ;(function ($) {
         $.fn.easyTabs = function (option) {
           var param = jQuery.extend(
@@ -56,6 +57,57 @@
           })
         }
       })(jQuery)
+=======
+      (function ($) {
+        $.fn.easyTabs = function (option) {
+          var param = jQuery.extend(
+            { fadeSpeed: 'fast', defaultContent: 1, activeClass: 'active' },
+            option,
+          );
+          $(this).each(function () {
+            var thisId = '#' + this.id;
+            if (param.defaultContent == '') {
+              param.defaultContent = 1;
+            }
+            if (typeof param.defaultContent == 'number') {
+              var defaultTab = $(
+                thisId + ' .tabs li:eq(' + (param.defaultContent - 1) + ') a',
+              )
+                .attr('href')
+                .substr(1);
+            } else {
+              var defaultTab = param.defaultContent;
+            }
+            $(thisId + ' .tabs li a').each(function () {
+              var tabToHide = $(this).attr('href').substr(1);
+              $('#' + tabToHide).addClass('easytabs-tab-content');
+            });
+            hideAll();
+            changeContent(defaultTab);
+            function hideAll() {
+              $(thisId + ' .easytabs-tab-content').hide();
+            }
+            function changeContent(tabId) {
+              hideAll();
+              $(thisId + ' .tabs li').removeClass(param.activeClass);
+              $(thisId + ' .tabs li a[href=#' + tabId + ']')
+                .closest('li')
+                .addClass(param.activeClass);
+              if (param.fadeSpeed != 'none') {
+                $(thisId + ' #' + tabId).fadeIn(param.fadeSpeed);
+              } else {
+                $(thisId + ' #' + tabId).show();
+              }
+            }
+            $(thisId + ' .tabs li').click(function () {
+              var tabId = $(this).find('a').attr('href').substr(1);
+              changeContent(tabId);
+              return false;
+            });
+          });
+        };
+      })(jQuery);
+>>>>>>> ce32da5... migrate to latest blitz app
     </script>
     <link
       rel="stylesheet"
@@ -63,11 +115,24 @@
       type="text/css"
       charset="utf-8"
     />
+<<<<<<< HEAD
     <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
 
     <style type="text/css">
       body {
         font-family: "silkaregular_italic";
+=======
+    <link
+      rel="stylesheet"
+      href="stylesheet.css"
+      type="text/css"
+      charset="utf-8"
+    />
+
+    <style type="text/css">
+      body {
+        font-family: 'silkaregular_italic';
+>>>>>>> ce32da5... migrate to latest blitz app
       }
     </style>
 
@@ -75,8 +140,13 @@
 
     <script type="text/javascript" charset="utf-8">
       $(document).ready(function () {
+<<<<<<< HEAD
         $("#container").easyTabs({ defaultContent: 1 })
       })
+=======
+        $('#container').easyTabs({ defaultContent: 1 });
+      });
+>>>>>>> ce32da5... migrate to latest blitz app
     </script>
   </head>
 
@@ -209,47 +279,102 @@
               <div class="verdanabody">body</div>
               <div class="georgiabody">body</div>
             </div>
+<<<<<<< HEAD
             <div class="fontbody" style="z-index: 1">body<span>Silka Regular Italic</span></div>
             <div class="arialbody" style="z-index: 1">body<span>Arial</span></div>
             <div class="verdanabody" style="z-index: 1">body<span>Verdana</span></div>
             <div class="georgiabody" style="z-index: 1">body<span>Georgia</span></div>
+=======
+            <div class="fontbody" style="z-index: 1">
+              body<span>Silka Regular Italic</span>
+            </div>
+            <div class="arialbody" style="z-index: 1">
+              body<span>Arial</span>
+            </div>
+            <div class="verdanabody" style="z-index: 1">
+              body<span>Verdana</span>
+            </div>
+            <div class="georgiabody" style="z-index: 1">
+              body<span>Georgia</span>
+            </div>
+>>>>>>> ce32da5... migrate to latest blitz app
           </div>
 
           <div class="section psample psample_row1" id="">
             <div class="grid2 firstcol">
               <p class="size10">
+<<<<<<< HEAD
                 <span>10.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>10.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid3">
               <p class="size11">
+<<<<<<< HEAD
                 <span>11.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>11.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid3">
               <p class="size12">
+<<<<<<< HEAD
                 <span>12.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>12.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid4">
               <p class="size13">
+<<<<<<< HEAD
                 <span>13.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>13.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="white_blend"></div>
@@ -257,29 +382,59 @@
           <div class="section psample psample_row2" id="">
             <div class="grid3 firstcol">
               <p class="size14">
+<<<<<<< HEAD
                 <span>14.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>14.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid4">
               <p class="size16">
+<<<<<<< HEAD
                 <span>16.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>16.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid5">
               <p class="size18">
+<<<<<<< HEAD
                 <span>18.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>18.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
 
@@ -289,20 +444,40 @@
           <div class="section psample psample_row3" id="">
             <div class="grid5 firstcol">
               <p class="size20">
+<<<<<<< HEAD
                 <span>20.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>20.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid7">
               <p class="size24">
+<<<<<<< HEAD
                 <span>24.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>24.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
 
@@ -312,11 +487,21 @@
           <div class="section psample psample_row4" id="">
             <div class="grid12 firstcol">
               <p class="size30">
+<<<<<<< HEAD
                 <span>30.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>30.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="white_blend"></div>
@@ -325,38 +510,78 @@
           <div class="section psample psample_row1 fullreverse">
             <div class="grid2 firstcol">
               <p class="size10">
+<<<<<<< HEAD
                 <span>10.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>10.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid3">
               <p class="size11">
+<<<<<<< HEAD
                 <span>11.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>11.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid3">
               <p class="size12">
+<<<<<<< HEAD
                 <span>12.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>12.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid4">
               <p class="size13">
+<<<<<<< HEAD
                 <span>13.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>13.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="black_blend"></div>
@@ -365,29 +590,59 @@
           <div class="section psample psample_row2 fullreverse">
             <div class="grid3 firstcol">
               <p class="size14">
+<<<<<<< HEAD
                 <span>14.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>14.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid4">
               <p class="size16">
+<<<<<<< HEAD
                 <span>16.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>16.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid5">
               <p class="size18">
+<<<<<<< HEAD
                 <span>18.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>18.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="black_blend"></div>
@@ -396,20 +651,40 @@
           <div class="section psample fullreverse psample_row3" id="">
             <div class="grid5 firstcol">
               <p class="size20">
+<<<<<<< HEAD
                 <span>20.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>20.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="grid7">
               <p class="size24">
+<<<<<<< HEAD
                 <span>24.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>24.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
 
@@ -423,11 +698,21 @@
           >
             <div class="grid12 firstcol">
               <p class="size30">
+<<<<<<< HEAD
                 <span>30.</span>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
                 risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque
                 penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit
                 libero, a pharetra augue.
+=======
+                <span>30.</span>Aenean lacinia bibendum nulla sed consectetur.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
+                augue.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
             <div class="black_blend"></div>
@@ -446,14 +731,22 @@
           <div class="section">
             <div class="grid8 firstcol">
               <p class="large">
+<<<<<<< HEAD
                 Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
                 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                 fermentum massa justo sit amet risus.
+=======
+                Donec sed odio dui. Morbi leo risus, porta ac consectetur ac,
+                vestibulum at eros. Fusce dapibus, tellus ac cursus commodo,
+                tortor mauris condimentum nibh, ut fermentum massa justo sit
+                amet risus.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
 
               <h3>Pellentesque ornare sem</h3>
 
               <p>
+<<<<<<< HEAD
                 Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus
                 mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor
                 id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut
@@ -475,11 +768,39 @@
                 Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna
                 mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non
                 magna. Donec ullamcorper nulla non metus auctor fringilla.
+=======
+                Maecenas sed diam eget risus varius blandit sit amet non magna.
+                Maecenas faucibus mollis interdum. Donec ullamcorper nulla non
+                metus auctor fringilla. Nullam id dolor id nibh ultricies
+                vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula
+                ut id elit.
+              </p>
+
+              <p>
+                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Cum sociis natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus.
+              </p>
+
+              <p>
+                Nulla vitae elit libero, a pharetra augue. Praesent commodo
+                cursus magna, vel scelerisque nisl consectetur et. Aenean
+                lacinia bibendum nulla sed consectetur.
+              </p>
+
+              <p>
+                Nullam quis risus eget urna mollis ornare vel eu leo. Nullam
+                quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam
+                eget risus varius blandit sit amet non magna. Donec ullamcorper
+                nulla non metus auctor fringilla.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
 
               <h3>Cras mattis consectetur</h3>
 
               <p>
+<<<<<<< HEAD
                 Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
                 Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis
                 dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.
@@ -488,15 +809,35 @@
               <p>
                 Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna
                 mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum.
+=======
+                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                venenatis vestibulum. Aenean lacinia bibendum nulla sed
+                consectetur. Integer posuere erat a ante venenatis dapibus
+                posuere velit aliquet. Cras mattis consectetur purus sit amet
+                fermentum.
+              </p>
+
+              <p>
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam
+                quis risus eget urna mollis ornare vel eu leo. Cras mattis
+                consectetur purus sit amet fermentum.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
 
             <div class="grid4 sidebar">
               <div class="box reverse">
                 <p class="last">
+<<<<<<< HEAD
                   Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non
                   metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Sed
                   posuere consectetur est at lobortis. Lorem ipsum dolor sit amet, consectetur
+=======
+                  Nullam quis risus eget urna mollis ornare vel eu leo. Donec
+                  ullamcorper nulla non metus auctor fringilla. Cras mattis
+                  consectetur purus sit amet fermentum. Sed posuere consectetur
+                  est at lobortis. Lorem ipsum dolor sit amet, consectetur
+>>>>>>> ce32da5... migrate to latest blitz app
                   adipiscing elit.
                 </p>
               </div>
@@ -504,6 +845,7 @@
               <p class="caption">Maecenas sed diam eget risus varius.</p>
 
               <p>
+<<<<<<< HEAD
                 Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante
                 venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod
                 semper. Sed posuere consectetur est at lobortis. Maecenas sed diam eget risus varius
@@ -523,6 +865,32 @@
                 ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum.
                 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                 fermentum massa justo sit amet risus.
+=======
+                Vestibulum id ligula porta felis euismod semper. Integer posuere
+                erat a ante venenatis dapibus posuere velit aliquet. Vestibulum
+                id ligula porta felis euismod semper. Sed posuere consectetur
+                est at lobortis. Maecenas sed diam eget risus varius blandit sit
+                amet non magna. Fusce dapibus, tellus ac cursus commodo, tortor
+                mauris condimentum nibh, ut fermentum massa justo sit amet
+                risus.
+              </p>
+
+              <p>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+                eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla
+                sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum
+                faucibus dolor auctor. Aenean lacinia bibendum nulla sed
+                consectetur. Nullam quis risus eget urna mollis ornare vel eu
+                leo.
+              </p>
+
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur
+                et. Donec ullamcorper nulla non metus auctor fringilla. Maecenas
+                faucibus mollis interdum. Fusce dapibus, tellus ac cursus
+                commodo, tortor mauris condimentum nibh, ut fermentum massa
+                justo sit amet risus.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
           </div>
@@ -533,6 +901,7 @@
             <div class="grid12 firstcol">
               <h1>Language Support</h1>
               <p>
+<<<<<<< HEAD
                 The subset of Silka Regular Italic in this kit supports the following languages:<br />
 
                 Albanian, Basque, Bosnian, Breton, Catalan, Chamorro, Chichewa_nyanja, Croatian,
@@ -558,6 +927,40 @@
                 The subset of Silka Regular Italic in this kit includes all the glyphs listed below.
                 Unicode entities are included above each glyph to help you insert individual
                 characters into your layout.
+=======
+                The subset of Silka Regular Italic in this kit supports the
+                following languages:<br />
+
+                Albanian, Basque, Bosnian, Breton, Catalan, Chamorro,
+                Chichewa_nyanja, Croatian, Czech, Danish, Dutch, English,
+                Estonian, Faroese, Finnish, French, Frisian, Galician, German,
+                Hungarian, Icelandic, Italian, Latvian, Lithuanian, Malagasy,
+                Maltese, Norwegian, Polish, Portuguese, Romanian, Slovak,
+                Slovenian, Spanish, Swedish, Turkish, Welsh, Alsatian,
+                Aragonese, Arapaho, Aromanian, Arrernte, Asturian, Aymara,
+                Bislama, Cebuano, Cheyenne, Cimbrian, Corsican, Fijian,
+                French_creole, Friulian, Genoese, Gilbertese, Greenlandic,
+                Haitian_creole, Hawaiian, Hiligaynon, Hmong, Hopi, Ibanag,
+                Iloko_ilokano, Indonesian, Interglossa_glosa, Interlingua,
+                Irish_gaelic, Istro-romanian, Jerriais, Kashubian,
+                Kurdish_kurmanji, Ladin, Lojban, Lombard, Low_saxon,
+                Luxembourgeois, Manx, Maori, Megleno-romanian, Mohawk, Nahuatl,
+                Norfolk_pitcairnese, Northern_sotho, Occitan, Oromo, Pangasinan,
+                Papiamento, Piedmontese, Potawatomi, Rhaeto-romance, Romansh,
+                Rotokas, Sami_inari, Sami_lule, Samoan, Sardinian, Scots_gaelic,
+                Seychelles_creole, Shona, Sicilian, Somali, Southern_ndebele,
+                Southern_sotho, Swahili, Swati_swazi, Tagalog_filipino_pilipino,
+                Tahitian, Tausug, Tetum, Tok_pisin, Tongan, Tswana, Turkmen,
+                Turkmen_latinized, Tuvaluan, Uyghur_latinized, Veps, Volapuk,
+                Votic_latinized, Walloon, Warlpiri, Xhosa, Yapese, Zulu,
+                Latinbasic, Ubasic, Demo
+              </p>
+              <h1>Glyph Chart</h1>
+              <p>
+                The subset of Silka Regular Italic in this kit includes all the
+                glyphs listed below. Unicode entities are included above each
+                glyph to help you insert individual characters into your layout.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
               <div id="glyph_chart">
                 <div>
@@ -2021,22 +2424,40 @@
               <h1>Installing Webfonts</h1>
 
               <p>
+<<<<<<< HEAD
                 Webfonts are supported by all major browser platforms but not all in the same way.
                 There are currently four different font formats that must be included in order to
                 target all browsers. This includes TTF, WOFF, EOT and SVG.
+=======
+                Webfonts are supported by all major browser platforms but not
+                all in the same way. There are currently four different font
+                formats that must be included in order to target all browsers.
+                This includes TTF, WOFF, EOT and SVG.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
 
               <h2>1. Upload your webfonts</h2>
               <p>
+<<<<<<< HEAD
                 You must upload your webfont kit to your website. They should be in or near the same
                 directory as your CSS files.
+=======
+                You must upload your webfont kit to your website. They should be
+                in or near the same directory as your CSS files.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
 
               <h2>2. Include the webfont stylesheet</h2>
               <p>
+<<<<<<< HEAD
                 A special CSS @font-face declaration helps the various browsers select the
                 appropriate font it needs without causing you a bunch of headaches. Learn more about
                 this syntax by reading the
+=======
+                A special CSS @font-face declaration helps the various browsers
+                select the appropriate font it needs without causing you a bunch
+                of headaches. Learn more about this syntax by reading the
+>>>>>>> ce32da5... migrate to latest blitz app
                 <a
                   href="https://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax"
                   >Fontspring blog post</a
@@ -2045,6 +2466,7 @@
               </p>
 
               <code>
+<<<<<<< HEAD
                 @font-face{ font-family: 'MyWebFont'; src: url('WebFont.eot'); src:
                 url('WebFont.eot?#iefix') format('embedded-opentype'), url('WebFont.woff')
                 format('woff'), url('WebFont.ttf') format('truetype'), url('WebFont.svg#webfont')
@@ -2058,23 +2480,55 @@
               <code
                 >&lt;link rel=&quot;stylesheet&quot; href=&quot;stylesheet.css&quot;
                 type=&quot;text/css&quot; charset=&quot;utf-8&quot; /&gt;</code
+=======
+                @font-face{ font-family: 'MyWebFont'; src: url('WebFont.eot');
+                src: url('WebFont.eot?#iefix') format('embedded-opentype'),
+                url('WebFont.woff') format('woff'), url('WebFont.ttf')
+                format('truetype'), url('WebFont.svg#webfont') format('svg'); }
+              </code>
+
+              <p>
+                We've already gone ahead and generated the code for you. All you
+                have to do is link to the stylesheet in your HTML, like this:
+              </p>
+              <code
+                >&lt;link rel=&quot;stylesheet&quot;
+                href=&quot;stylesheet.css&quot; type=&quot;text/css&quot;
+                charset=&quot;utf-8&quot; /&gt;</code
+>>>>>>> ce32da5... migrate to latest blitz app
               >
 
               <h2>3. Modify your own stylesheet</h2>
               <p>
+<<<<<<< HEAD
                 To take advantage of your new fonts, you must tell your stylesheet to use them. Look
                 at the original @font-face declaration above and find the property called
                 "font-family." The name linked there will be what you use to reference the font.
                 Prepend that webfont name to the font stack in the "font-family" property, inside
                 the selector you want to change. For example:
+=======
+                To take advantage of your new fonts, you must tell your
+                stylesheet to use them. Look at the original @font-face
+                declaration above and find the property called "font-family."
+                The name linked there will be what you use to reference the
+                font. Prepend that webfont name to the font stack in the
+                "font-family" property, inside the selector you want to change.
+                For example:
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
               <code>p { font-family: 'WebFont', Arial, sans-serif; }</code>
 
               <h2>4. Test</h2>
               <p>
+<<<<<<< HEAD
                 Getting webfonts to work cross-browser <em>can</em> be tricky. Use the information
                 in the sidebar to help you if you find that fonts aren't loading in a particular
                 browser.
+=======
+                Getting webfonts to work cross-browser <em>can</em> be tricky.
+                Use the information in the sidebar to help you if you find that
+                fonts aren't loading in a particular browser.
+>>>>>>> ce32da5... migrate to latest blitz app
               </p>
             </div>
 
@@ -2082,51 +2536,95 @@
               <div class="box">
                 <h2>Troubleshooting<br />Font-Face Problems</h2>
                 <p>
+<<<<<<< HEAD
                   Having trouble getting your webfonts to load in your new website? Here are some
                   tips to sort out what might be the problem.
+=======
+                  Having trouble getting your webfonts to load in your new
+                  website? Here are some tips to sort out what might be the
+                  problem.
+>>>>>>> ce32da5... migrate to latest blitz app
                 </p>
 
                 <h3>Fonts not showing in any browser</h3>
 
                 <p>
+<<<<<<< HEAD
                   This sounds like you need to work on the plumbing. You either did not upload the
                   fonts to the correct directory, or you did not link the fonts properly in the CSS.
                   If you've confirmed that all this is correct and you still have a problem, take a
                   look at your .htaccess file and see if requests are getting intercepted.
+=======
+                  This sounds like you need to work on the plumbing. You either
+                  did not upload the fonts to the correct directory, or you did
+                  not link the fonts properly in the CSS. If you've confirmed
+                  that all this is correct and you still have a problem, take a
+                  look at your .htaccess file and see if requests are getting
+                  intercepted.
+>>>>>>> ce32da5... migrate to latest blitz app
                 </p>
 
                 <h3>Fonts not loading in iPhone or iPad</h3>
 
                 <p>
+<<<<<<< HEAD
                   The most common problem here is that you are serving the fonts from an IIS server.
                   IIS refuses to serve files that have unknown MIME types. If that is the case, you
                   must set the MIME type for SVG to "image/svg+xml" in the server settings. Follow
+=======
+                  The most common problem here is that you are serving the fonts
+                  from an IIS server. IIS refuses to serve files that have
+                  unknown MIME types. If that is the case, you must set the MIME
+                  type for SVG to "image/svg+xml" in the server settings. Follow
+>>>>>>> ce32da5... migrate to latest blitz app
                   these instructions from Microsoft if you need help.
                 </p>
 
                 <h3>Fonts not loading in Firefox</h3>
 
                 <p>
+<<<<<<< HEAD
                   The primary reason for this failure? You are still using a version Firefox older
                   than 3.5. So upgrade already! If that isn't it, then you are very likely serving
                   fonts from a different domain. Firefox requires that all font assets be served
                   from the same domain. Lastly it is possible that you need to add WOFF to your list
                   of MIME types (if you are serving via IIS.)
+=======
+                  The primary reason for this failure? You are still using a
+                  version Firefox older than 3.5. So upgrade already! If that
+                  isn't it, then you are very likely serving fonts from a
+                  different domain. Firefox requires that all font assets be
+                  served from the same domain. Lastly it is possible that you
+                  need to add WOFF to your list of MIME types (if you are
+                  serving via IIS.)
+>>>>>>> ce32da5... migrate to latest blitz app
                 </p>
 
                 <h3>Fonts not loading in IE</h3>
 
                 <p>
+<<<<<<< HEAD
                   Are you looking at Internet Explorer on an actual Windows machine or are you
                   cheating by using a service like Adobe BrowserLab? Many of these screenshot
                   services do not render @font-face for IE. Best to test it on a real machine.
+=======
+                  Are you looking at Internet Explorer on an actual Windows
+                  machine or are you cheating by using a service like Adobe
+                  BrowserLab? Many of these screenshot services do not render
+                  @font-face for IE. Best to test it on a real machine.
+>>>>>>> ce32da5... migrate to latest blitz app
                 </p>
 
                 <h3>Fonts not loading in IE9</h3>
 
                 <p>
+<<<<<<< HEAD
                   IE9, like Firefox, requires that fonts be served from the same domain as the
                   website. Make sure that is the case.
+=======
+                  IE9, like Firefox, requires that fonts be served from the same
+                  domain as the website. Make sure that is the case.
+>>>>>>> ce32da5... migrate to latest blitz app
                 </p>
               </div>
             </div>

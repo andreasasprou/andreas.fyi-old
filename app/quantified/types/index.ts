@@ -1,2 +1,1 @@
-export * from './oura';
-export * from './glucose';
+export * from './oura'

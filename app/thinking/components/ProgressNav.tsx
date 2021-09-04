@@ -1,73 +1,63 @@
-import React, { Ref, useEffect, useState } from 'react';
-import { Heading, LinkProps, StackProps } from '@chakra-ui/layout';
-import { Link } from 'ui/common';
-import { Stack } from '@chakra-ui/react';
+import React, { Ref, useEffect, useState } from 'react'
+import { Heading, LinkProps, StackProps } from '@chakra-ui/layout'
+import { Stack } from '@chakra-ui/react'
+import { Link } from 'ui/common'
 
 export interface ProgressNavSection {
-  id: string;
-  title: string;
+  id: string
+  title: string
 }
 
 interface ProgressNavProps extends StackProps {
-  title?: string;
-  sections: ProgressNavSection[];
+  title?: string
+  sections: ProgressNavSection[]
 }
 
-const TOP = 100;
+const TOP = 100
 
 const NavLink = React.forwardRef(function NavLink(
   {
     isActive,
     ...rest
   }: LinkProps & {
-    isActive: boolean;
+    isActive: boolean
   },
-  ref: Ref<HTMLAnchorElement>,
+  ref: Ref<HTMLAnchorElement>
 ) {
-  return (
-    <Link
-      ref={ref}
-      color={isActive ? 'blue.300' : 'whiteAlpha.800'}
-      {...rest}
-    />
-  );
-});
+  return <Link ref={ref} color={isActive ? 'blue.300' : 'whiteAlpha.800'} {...rest} />
+})
 
-export function ProgressNav({
-  title = 'Topics of Thought',
-  sections,
-  ...rest
-}: ProgressNavProps) {
-  const [activeSection, setActiveSection] = useState<string | undefined>();
+export function ProgressNav({ title = 'Topics of Thought', sections, ...rest }: ProgressNavProps) {
+  const [activeSection, setActiveSection] = useState<string | undefined>()
 
-  const sectionIds = sections.map(({ id }) => id);
+  const sectionIds = sections.map(({ id }) => id)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const id = entry.target.getAttribute('id');
+          const id = entry.target.getAttribute('id')
 
           if (entry.intersectionRatio > 0) {
-            setActiveSection(id as string);
+            setActiveSection(id as string)
           } else if (activeSection === id) {
-            setActiveSection(undefined);
+            setActiveSection(undefined)
           }
-        });
+        })
       },
       {
-        threshold: 0.1,
-      },
-    );
+        threshold: 0.1
+      }
+    )
 
     document.querySelectorAll('section[id]').forEach((section) => {
       if (!sectionIds.includes(section.getAttribute('id') as string)) {
-        return;
+        return
       }
 
-      observer.observe(section);
-    });
-  }, [activeSection, sectionIds]);
+      observer.observe(section)
+    })
+  }, [activeSection, sectionIds])
 
   return (
     <Stack
@@ -79,7 +69,7 @@ export function ProgressNav({
       maxW={380}
       display={{
         base: 'none',
-        md: 'flex',
+        md: 'flex'
       }}
       pl={20}
       {...rest}
@@ -93,5 +83,5 @@ export function ProgressNav({
         </NavLink>
       ))}
     </Stack>
-  );
+  )
 }

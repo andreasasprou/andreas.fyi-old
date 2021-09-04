@@ -15,8 +15,11 @@
     "schema": "db/schema.prisma"
   },
   "prettier": {
-    "semi": false,
-    "printWidth": 100
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "semi": true,
+    "trailingComma": "all"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
@@ -24,22 +27,45 @@
     ]
   },
   "dependencies": {
+    "@chakra-ui/icons": "1.0.15",
+    "@chakra-ui/react": "1.6.7",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@prisma/client": "2.30.3",
+    "@tippyjs/react": "4.2.5",
     "blitz": "0.40.0-canary.7",
-    "react-dom": "alpha",
-    "react": "alpha",
-    "zod": "3.8.2",
+    "date-fns": "2.23.0",
     "final-form": "4.20.2",
-    "react-final-form": "6.5.3"
+    "framer-motion": "^4",
+    "next-seo": "4.26.0",
+    "notion-client": "4.8.6",
+    "notion-types": "4.8.2",
+    "notion-utils": "4.8.6",
+    "nprogress": "0.2.0",
+    "oura": "0.6.5",
+    "prismjs": "1.24.1",
+    "react": "alpha",
+    "react-dom": "alpha",
+    "react-final-form": "6.5.3",
+    "react-notion-x": "4.8.7",
+    "react-tweet-embed": "1.2.2",
+    "recoil": "0.4.1",
+    "zod": "3.8.2"
   },
   "devDependencies": {
+    "@types/date-fns": "2.6.0",
+    "@types/nprogress": "0.2.0",
     "@types/preview-email": "2.0.1",
+    "@types/prismjs": "1.16.6",
     "@types/react": "17.0.19",
     "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-quick-prettier": "0.0.29",
     "husky": "6.0.0",
     "lint-staged": "10.5.4",
-    "prettier-plugin-prisma": "0.15.0",
     "prettier": "2.3.2",
+    "prettier-plugin-prisma": "0.15.0",
     "pretty-quick": "3.1.1",
     "preview-email": "3.0.5",
     "prisma": "2.30.3",

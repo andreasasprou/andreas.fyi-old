@@ -1,65 +1,55 @@
-import { Box, Link } from '@chakra-ui/react';
-import React, { useEffect } from 'react';
-import { Flex, Heading } from '@chakra-ui/layout';
-import { LayoutConstants, ROUTES } from 'utils/constants/client';
-import Layout from 'layouts/Layout';
-import { NotionRenderer, Code } from 'react-notion-x';
-import TweetEmbed from 'react-tweet-embed';
-import * as notionTypes from 'notion-types';
+import { Box, Link } from '@chakra-ui/react'
+import React, { useEffect } from 'react'
+import { Flex, Heading } from '@chakra-ui/layout'
+import { NotionRenderer, Code } from 'react-notion-x'
+import TweetEmbed from 'react-tweet-embed'
+import * as notionTypes from 'notion-types'
 
-import { NotionAPI } from 'notion-client';
-import { getPageTableOfContents } from 'notion-utils';
+import { NotionAPI } from 'notion-client'
+import { getPageTableOfContents } from 'notion-utils'
 
-import { NotionStyles } from 'engineering/styles/notion';
-import 'prismjs/themes/prism-tomorrow.css';
-import 'prismjs/components/prism-tsx';
-import 'prismjs/components/prism-typescript';
-import { TableOfContents } from 'ui/TableOfContents';
-import Prism from 'prismjs';
-import { NextSeo } from 'next-seo';
+import Prism from 'prismjs'
+import { NextSeo } from 'next-seo'
+import { NotionStyles } from 'engineering/styles/notion'
+import 'prismjs/themes/prism-tomorrow.css'
+import 'prismjs/components/prism-tsx'
+import 'prismjs/components/prism-typescript'
+import { TableOfContents } from 'ui/TableOfContents'
+import Layout from 'layouts/Layout'
+import { LayoutConstants, ROUTES } from 'utils/constants/client'
 
-const getTableOfContentsFromRecordMap = (
-  recordMap: notionTypes.ExtendedRecordMap,
-) => {
-  const pageItem = Object.values(recordMap.block).find(
-    (value) => value.value.type === 'page',
-  );
+const getTableOfContentsFromRecordMap = (recordMap: notionTypes.ExtendedRecordMap) => {
+  const pageItem = Object.values(recordMap.block).find((item) => item.value.type === 'page')
 
-  return getPageTableOfContents(
-    pageItem?.value as notionTypes.PageBlock,
-    recordMap,
-  );
-};
-
-interface PageProps {
-  recordMap: notionTypes.ExtendedRecordMap;
+  return getPageTableOfContents(pageItem?.value as notionTypes.PageBlock, recordMap)
 }
 
-const title =
-  "Patterns for recreating Vercel's static in-app page skeleton loaders in Next.js";
+interface PageProps {
+  recordMap: notionTypes.ExtendedRecordMap
+}
 
-const url = `https://andreas.fyi${ROUTES.Engineering.article(
-  'nextjs-auth-skeleton-loaders',
-)}`;
+const title = "Patterns for recreating Vercel's static in-app page skeleton loaders in Next.js"
+
+const url = `https://andreas.fyi${ROUTES.Engineering.article('nextjs-auth-skeleton-loaders')}`
 const seoDescription =
-  'Strategies and patterns for per-page authentication and skeleton loaders inspired by Vercel in Next.js.';
+  'Strategies and patterns for per-page authentication and skeleton loaders inspired by Vercel in Next.js.'
 
 const Tweet = (props) => (
   <TweetEmbed
     {...props}
     options={{
       ...props.options,
-      theme: 'dark',
+      theme: 'dark'
     }}
   />
-);
+)
 
 function NextjsAuthSkeletonLoadersPage({ recordMap }: PageProps) {
-  const toc = getTableOfContentsFromRecordMap(recordMap);
+  const toc = getTableOfContentsFromRecordMap(recordMap)
 
   useEffect(() => {
-    Prism.highlightAll();
-  }, []);
+    Prism.highlightAll()
+  }, [])
 
   return (
     <Flex w="100%" pt={LayoutConstants.margin.large}>
@@ -76,15 +66,15 @@ function NextjsAuthSkeletonLoadersPage({ recordMap }: PageProps) {
               url: 'https://andreas.fyi/og-skeleton-loader.jpg',
               width: 2400,
               height: 1257,
-              alt: 'Vercel skeleton loaders',
-            },
+              alt: 'Vercel skeleton loaders'
+            }
           ],
-          site_name: 'Andreas.fyi',
+          site_name: 'Andreas.fyi'
         }}
         twitter={{
           handle: '@andyasprou',
           site: '@andyasprou',
-          cardType: 'summary_large_image',
+          cardType: 'summary_large_image'
         }}
       />
       <NotionStyles />
@@ -100,25 +90,23 @@ function NextjsAuthSkeletonLoadersPage({ recordMap }: PageProps) {
       </Box>
       <TableOfContents toc={toc} />
     </Flex>
-  );
+  )
 }
-NextjsAuthSkeletonLoadersPage.getLayout = (page) => (
-  <Layout title={title}>{page}</Layout>
-);
+NextjsAuthSkeletonLoadersPage.getLayout = (page) => <Layout title={title}>{page}</Layout>
 
-const notion = new NotionAPI();
+const notion = new NotionAPI()
 
 export async function getStaticProps() {
   const recordMap = await notion.getPage(
-    'Final-Recreating-Vercel-s-static-in-app-page-skeleton-loaders-in-Next-js-60a752e697ae4dfa9c56997a336eb265',
-  );
+    'Final-Recreating-Vercel-s-static-in-app-page-skeleton-loaders-in-Next-js-60a752e697ae4dfa9c56997a336eb265'
+  )
 
   return {
     props: {
-      recordMap,
+      recordMap
     },
-    revalidate: 1,
-  };
+    revalidate: 1
+  }
 }
 
-export default NextjsAuthSkeletonLoadersPage;
+export default NextjsAuthSkeletonLoadersPage

@@ -1,34 +1,34 @@
-import React from 'react';
-import { OuraData } from 'quantified/types';
-import { OuraService } from 'quantified/services/sleep';
-import { OuraInsights } from 'quantified/components/Oura';
-import Layout from '../../../layouts/Layout';
+import React from 'react'
+import Layout from '../../../layouts/Layout'
+import { OuraData } from 'quantified/types'
+import { OuraService } from 'quantified/services/sleep'
+import { OuraInsights } from 'quantified/components/Oura'
 
 interface SleepQuantifiedPageProps {
-  oura: OuraData;
+  oura: OuraData
 }
 
 function SleepQuantifiedPage({ oura, ...rest }: SleepQuantifiedPageProps) {
-  console.log(oura);
+  console.log(oura)
 
   return (
     <>
       <OuraInsights {...oura} />
     </>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const oura = OuraService.allData();
+  const oura = OuraService.allData()
 
   return {
     props: {
-      oura: await oura,
+      oura: await oura
     },
-    revalidate: 60 * 60, // one hour
-  };
+    revalidate: 60 * 60 // one hour
+  }
 }
 
-SleepQuantifiedPage.getLayout = (page) => <Layout title="Sleep">{page}</Layout>;
+SleepQuantifiedPage.getLayout = (page) => <Layout title="Sleep">{page}</Layout>
 
-export default SleepQuantifiedPage;
+export default SleepQuantifiedPage

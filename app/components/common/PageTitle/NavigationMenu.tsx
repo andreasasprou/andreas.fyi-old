@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Icon,
   Menu,
@@ -9,23 +9,22 @@ import {
   MenuItem,
   MenuItemProps,
   MenuList,
-  Portal,
-} from '@chakra-ui/react';
-import { HamburgerIcon } from 'chakra-ui/packages/icons/src/Hamburger';
-import { ROUTES } from 'utils/constants/client';
-import { useRouter } from 'blitz';
-import { Link as NextLink } from '@blitzjs/core';
+  Portal
+} from '@chakra-ui/react'
+import { HamburgerIcon } from '@chakra-ui/icons'
+import { Link as NextLink, useRouter } from 'blitz'
+import { ROUTES } from 'utils/constants/client'
 
 function MenuItemLink({
   to,
   ...rest
 }: {
-  to: string;
+  to: string
 } & MenuItemProps) {
-  const router = useRouter();
-  const pathname = router.pathname;
+  const router = useRouter()
+  const pathname = router.pathname
 
-  const isActive = pathname.includes(to);
+  const isActive = pathname.includes(to)
 
   return (
     <NextLink href={to}>
@@ -35,7 +34,7 @@ function MenuItemLink({
         {...rest}
       />
     </NextLink>
-  );
+  )
 }
 
 export function NavigationMenu({ ...rest }: MenuButtonProps) {
@@ -48,9 +47,9 @@ export function NavigationMenu({ ...rest }: MenuButtonProps) {
         h={35}
         display="flex"
         alignItems="center"
-        justfiyContent="center"
+        justifyContent="center"
         _focus={{
-          bg: 'whiteAlpha.200',
+          bg: 'whiteAlpha.200'
         }}
         mt="-3px"
         {...rest}
@@ -61,12 +60,8 @@ export function NavigationMenu({ ...rest }: MenuButtonProps) {
         <MenuList zIndex={15} position="relative">
           <MenuGroup title="Thinking">
             <MenuItemLink to={ROUTES.Thinking.RoundUps}>Round ups</MenuItemLink>
-            <MenuItemLink to={ROUTES.Engineering.Home}>
-              Engineering
-            </MenuItemLink>
-            <MenuItemLink to={ROUTES.Preferences.Stuff}>
-              Stuff I like
-            </MenuItemLink>
+            <MenuItemLink to={ROUTES.Engineering.Home}>Engineering</MenuItemLink>
+            <MenuItemLink to={ROUTES.Preferences.Stuff}>Stuff I like</MenuItemLink>
           </MenuGroup>
           <MenuDivider />
           <MenuGroup title="Self-Quantified">
@@ -75,5 +70,5 @@ export function NavigationMenu({ ...rest }: MenuButtonProps) {
         </MenuList>
       </Portal>
     </Menu>
-  );
+  )
 }

@@ -17,7 +17,18 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "tsBuildInfoFile": ".tsbuildinfo"
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "paths": {
+      "utils/*": ["utils/*"],
+      "theme": ["utils/theme/index.ts"],
+      "ui/*": ["app/components/*"],
+      "home/*": ["app/home/*"],
+      "thinking/*": ["app/thinking/*"],
+      "layouts/*": ["app/layouts/*"],
+      "quantified/*": ["app/quantified/*"],
+      "preferences/*": ["app/preferences/*"],
+      "engineering/*": ["app/engineering/*"]
+    }
   },
   "exclude": ["node_modules", "**/*.e2e.ts", "cypress"],
   "include": ["blitz-env.d.ts", "**/*.ts", "**/*.tsx"]

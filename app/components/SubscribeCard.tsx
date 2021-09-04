@@ -1,65 +1,58 @@
-import React from 'react';
-import { Box, BoxProps, Flex, Heading, Text } from '@chakra-ui/layout';
-import { Field, Form } from 'react-final-form';
-import { Button, Input, useBoolean, useToast } from '@chakra-ui/react';
-import { localStorageEffect } from 'utils/shared/shared';
-import { atom, useRecoilState } from 'recoil';
-import subscribeToNewsletter from '../mutations/newsletter';
+import React from 'react'
+import { Box, BoxProps, Flex, Heading, Text } from '@chakra-ui/layout'
+import { Field, Form } from 'react-final-form'
+import { Button, Input, useBoolean, useToast } from '@chakra-ui/react'
+import { atom, useRecoilState } from 'recoil'
+import subscribeToNewsletter from '../mutations/newsletter'
+import { localStorageEffect } from 'utils/shared/shared'
 
 interface SubscribeCardProps extends BoxProps {}
 
 interface FormValues {
-  email: string;
+  email: string
 }
 
-const getFieldName = (k: keyof FormValues) => k;
+const getFieldName = (k: keyof FormValues) => k
 
 const hasSubscribedState = atom({
   key: 'subscribe/hasSubscribed',
   default: false,
-  effects_UNSTABLE: [localStorageEffect('subscribe/hasSubscribed')],
-});
+  effects_UNSTABLE: [localStorageEffect('subscribe/hasSubscribed')]
+})
 
 export function SubscribeCard({ ...rest }: SubscribeCardProps) {
-  const [isLoading, { on, off }] = useBoolean();
-  const [hasSubscribed, setHasSubscribed] = useRecoilState(hasSubscribedState);
-  const toast = useToast();
+  const [isLoading, { on, off }] = useBoolean()
+  const [hasSubscribed, setHasSubscribed] = useRecoilState(hasSubscribedState)
+  const toast = useToast()
   const onSubmit = async ({ email }: FormValues) => {
-    on();
+    on()
 
     try {
       if (!email) {
-        throw new Error('Please provide an email.');
+        throw new Error('Please provide an email.')
       }
 
-      await subscribeToNewsletter({ email });
+      await subscribeToNewsletter({ email })
 
-      setHasSubscribed(true);
+      setHasSubscribed(true)
     } catch (error) {
       toast({
         title: error.message,
-        status: 'error',
-      });
-      console.error(error);
+        status: 'error'
+      })
+      console.error(error)
     }
-    off();
-  };
+    off()
+  }
 
   return (
-    <Box
-      p={4}
-      maxW={500}
-      borderRadius="md"
-      bg="whiteAlpha.200"
-      position="relative"
-      {...rest}
-    >
+    <Box p={4} maxW={500} borderRadius="md" bg="whiteAlpha.200" position="relative" {...rest}>
       <Heading mb={1} size="md">
         Get the latest from me
       </Heading>
       <Text mb={4}>
-        If you want to hear about updates about this place (new posts, new
-        awesome products I find etc) add your email below:
+        If you want to hear about updates about this place (new posts, new awesome products I find
+        etc) add your email below:
       </Text>
       {hasSubscribed ? (
         <Text color="brand.500" fontWeight={500}>
@@ -72,7 +65,7 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
             <Flex
               direction={{
                 base: 'column',
-                md: 'row',
+                md: 'row'
               }}
               as="form"
               onSubmit={handleSubmit}
@@ -85,7 +78,7 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
                     w="100%"
                     _focus={{
                       borderColor: 'brand.500',
-                      bg: 'blackAlpha.800',
+                      bg: 'blackAlpha.800'
                     }}
                     isDisabled={isLoading}
                     type="email"
@@ -101,11 +94,11 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
                 bg="brand.500"
                 ml={{
                   base: 0,
-                  md: 2,
+                  md: 2
                 }}
                 mt={{
                   base: 2,
-                  md: 0,
+                  md: 0
                 }}
                 isLoading={isLoading}
                 loadingText="Loading..."
@@ -118,5 +111,5 @@ export function SubscribeCard({ ...rest }: SubscribeCardProps) {
         />
       )}
     </Box>
-  );
+  )
 }
