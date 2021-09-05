@@ -4,7 +4,7 @@ import { ListItem } from '@chakra-ui/react';
 import { List } from '@chakra-ui/react';
 import Layout from 'layouts/Layout';
 import { BodyText } from 'ui/common';
-import { LayoutConstants } from 'utils/constants/client';
+import { LayoutConstants, ROUTES } from 'utils/constants/client';
 import { Callout } from 'ui/common/Callout';
 
 const Quality = (props: TextProps) => (
@@ -81,7 +81,14 @@ function EarlyStageFounderCharacter() {
 }
 
 EarlyStageFounderCharacter.getLayout = (page) => (
-  <Layout title="Key Characteristics of an Early Stage Founder">{page}</Layout>
+  <Layout
+    title="Key Characteristics of Successful Early Stage Founders"
+    description="The four qualities that you often come across in successful early stage founders."
+    ogImage="key-chars-of-early-stage-founders-og-image.jpg"
+    url={`https://andreas.fyi${ROUTES.Thinking.FounderCharacteristics}`}
+  >
+    {page}
+  </Layout>
 );
 
 export default EarlyStageFounderCharacter;

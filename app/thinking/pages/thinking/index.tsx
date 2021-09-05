@@ -56,7 +56,7 @@ function ThinkingPage() {
       <PostLink
         title="Key Characteristics of Successful Early Stage Founders"
         excerpt="The four qualities that you often come across in successful early stage founders."
-        href={ROUTES.Thinking.post('early-stage-founder-characher')}
+        href={ROUTES.Thinking.FounderCharacteristics}
         date="05/09/2021"
       />
     </PageSection>

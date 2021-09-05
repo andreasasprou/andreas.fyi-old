@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Box, BoxProps, Container, Text } from '@chakra-ui/layout';
-import { NextSeo } from 'next-seo';
+import { NextSeo, NextSeoProps } from 'next-seo';
 import { Link } from '@chakra-ui/react';
 import { LayoutConstants } from 'utils/constants/client';
 import { SubscribeCard } from 'ui/SubscribeCard';
@@ -9,14 +9,47 @@ import { PageTitle } from 'ui/common';
 interface LayoutProps extends Omit<BoxProps, 'title'> {
   children: ReactNode;
   title: string | string[];
+  ogImage?: string;
+  url?: string;
+  description?: string;
 }
 
-function Layout({ title, children, ...rest }: LayoutProps) {
+function Layout({
+  title,
+  description = '',
+  children,
+  url,
+  ogImage,
+  ...rest
+}: LayoutProps) {
   return (
     <Box w="100%" h="100%" {...rest}>
       <NextSeo
         title={`${title} - Andreas Asprou`}
         description="Andreas Asprou."
+        {...(url
+          ? {
+              canonical: url,
+            }
+          : {})}
+        {...(ogImage
+          ? {
+              openGraph: {
+                url: url,
+                title: title as string,
+                description,
+                images: [
+                  {
+                    url: 'key-chars-of-early-stage-founders-og-image.jpg',
+                    width: 1200,
+                    height: 630,
+                    alt: title as string,
+                  },
+                ],
+                site_name: 'Andreas.fyi',
+              },
+            }
+          : {})}
       />
       <Container
         py={{

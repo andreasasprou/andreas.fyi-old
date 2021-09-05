@@ -18,6 +18,7 @@ export const ROUTES = {
   Thinking: {
     Home: '/thinking',
     roundUp: (name: RoundUps) => `/thinking/round-ups/${name}`,
+    FounderCharacteristics: '/thinking/early-stage-founder-character',
     post: (name: string) => `/thinking/${name}`,
   },
   Preferences: {
