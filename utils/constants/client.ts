@@ -16,8 +16,9 @@ export const ROUTES = {
     article: (name: EngineeringArticle) => `/engineering/${name}`,
   },
   Thinking: {
-    RoundUps: '/thinking/round-ups',
+    Home: '/thinking',
     roundUp: (name: RoundUps) => `/thinking/round-ups/${name}`,
+    post: (name: string) => `/thinking/${name}`,
   },
   Preferences: {
     Stuff: '/preferences/stuff',

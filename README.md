@@ -28,8 +28,8 @@ This isn't a blog. More of an app? I write all my posts in React. Keen to introd
 1. Clone and install deps
 
 ```bash
-git clone https://github.com/leerob/leerob.io.git
-cd leerob.io
+git clone hhttps://github.com/andreasasprou/andreas.fyi.git
+cd andreas.fyi
 yarn
 ```
 
@@ -56,7 +56,8 @@ yarn dev
 
 Open http://localhost:3000 with your browser to see the result.
 
-### Built using 
+### Built using
+
 - [Blitz.js](https://blitzjs.com/)
 - [Vercel](https://vercel.com)
 - [Chakra](https://chakra-ui.com/)
