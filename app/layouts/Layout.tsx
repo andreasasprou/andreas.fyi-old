@@ -27,6 +27,11 @@ function Layout({
       <NextSeo
         title={`${title} - Andreas Asprou`}
         description="Andreas Asprou."
+        twitter={{
+          handle: '@andyasprou',
+          site: '@andyasprou',
+          cardType: 'summary_large_image',
+        }}
         {...(url
           ? {
               canonical: url,
