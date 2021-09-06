@@ -45,9 +45,9 @@ function Layout({
                 description,
                 images: [
                   {
-                    url: 'https://andreas.fyi/key-chars-of-early-stage-founders-og-image.jpg',
-                    width: 1200,
-                    height: 630,
+                    url: ogImage,
+                    width: 2400,
+                    height: 1257,
                     alt: title as string,
                   },
                 ],

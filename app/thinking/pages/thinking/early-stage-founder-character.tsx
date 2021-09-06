@@ -84,7 +84,7 @@ EarlyStageFounderCharacter.getLayout = (page) => (
   <Layout
     title="Key Characteristics of Successful Early Stage Founders"
     description="The four qualities that you often come across in successful early stage founders."
-    ogImage="key-chars-of-early-stage-founders-og-image.jpg"
+    ogImage="https://andreas.fyi/key-chars-of-early-stage-founders-og-image.jpg"
     url={`https://andreas.fyi${ROUTES.Thinking.FounderCharacteristics}`}
   >
     {page}
