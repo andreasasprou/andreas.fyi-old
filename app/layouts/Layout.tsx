@@ -40,7 +40,7 @@ function Layout({
                 description,
                 images: [
                   {
-                    url: 'key-chars-of-early-stage-founders-og-image.jpg',
+                    url: 'https://andreas.fyi/key-chars-of-early-stage-founders-og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: title as string,
