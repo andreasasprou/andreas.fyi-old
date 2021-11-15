@@ -67,10 +67,6 @@ export function NavigationMenu({ ...rest }: MenuButtonProps) {
               Stuff I like
             </MenuItemLink>
           </MenuGroup>
-          <MenuDivider />
-          <MenuGroup title="Self-Quantified">
-            <MenuItemLink to={ROUTES.Quantified.Sleep}>Sleep</MenuItemLink>
-          </MenuGroup>
         </MenuList>
       </Portal>
     </Menu>

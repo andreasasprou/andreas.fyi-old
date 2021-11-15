@@ -25,9 +25,6 @@ export const ROUTES = {
     Stuff: '/preferences/stuff',
     Podcasts: '/preferences/podcasts',
   },
-  Quantified: {
-    Sleep: '/quantified/sleep',
-  },
 };
 
 export const LayoutConstants = {
